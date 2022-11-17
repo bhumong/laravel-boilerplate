@@ -1,0 +1,26 @@
+{
+    // See https://go.microsoft.com/fwlink/?LinkId=827846 to learn about workspace recommendations.
+    // Extension identifier format: ${publisher}.${name}. Example: vscode.csharp
+    // List of extensions which should be recommended for users of this workspace.
+    "recommendations": [
+        "austenc.laravel-docs",
+        "bmewburn.vscode-intelephense-client",
+        "eamodio.gitlens",
+        "EditorConfig.EditorConfig",
+        "Gruntfuggly.todo-tree",
+        "MehediDracula.php-namespace-resolver",
+        "mikestead.dotenv",
+        "neilbrayfield.php-docblocker",
+        "wayou.vscode-todo-highlight",
+        "ZainChen.json",
+        "damianbal.php-class-generator-composer-psr-4",
+        "cjhowe7.laravel-blade",
+        "streetsidesoftware.code-spell-checker",
+        "onecentlin.laravel-blade",
+        "emallin.phpunit"
+    ],
+    // List of extensions recommended by VS Code that should not be recommended for users of this workspace.
+    "unwantedRecommendations": [
+        "felixfbecker.php-intellisense"
+    ]
+}
