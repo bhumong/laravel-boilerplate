@@ -1,3 +1,6 @@
+@import './soft-ui-dashboard.min.css';
+
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
