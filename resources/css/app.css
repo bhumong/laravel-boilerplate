@@ -1,6 +1,6 @@
-@import './soft-ui-dashboard.min.css';
+@import "~bootstrap/dist/css/bootstrap.min.css";
+@import './adminKit.css';
 
-
-@tailwind base;
-@tailwind components;
-@tailwind utilities;
+/* @tailwind base; */
+/* @tailwind components; */
+/* @tailwind utilities; */

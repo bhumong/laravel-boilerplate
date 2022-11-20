@@ -32,3 +32,5 @@ Route::middleware('auth')->prefix('dashboard')->group(function () {
 
     Route::get('/roles', [RoleController::class, 'index'])->name('roles_index');
 });
+
+require __DIR__ . '/example_page.php';
