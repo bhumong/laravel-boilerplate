@@ -1,6 +1,5 @@
-@import "~bootstrap/dist/css/bootstrap.min.css";
-@import './adminKit.css';
-
+@import "~admin-lte/dist/css/adminlte.min.css";
+@import "~bootstrap-icons/font/bootstrap-icons.css";
 /* @tailwind base; */
 /* @tailwind components; */
 /* @tailwind utilities; */

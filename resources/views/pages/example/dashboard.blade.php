@@ -12,802 +12,1114 @@
 
         <!-- Scripts -->
         @vite(['resources/css/app.css', 'resources/js/app.js'])
+
     </head>
 
-<body>
-    <div class="wrapper">
-        <nav id="sidebar" class="sidebar js-sidebar">
-            <div class="sidebar-content js-simplebar">
-                <a class="sidebar-brand" href="dashboard>
-          <span class="align-middle">AdminKit</span>
-        </a>
+<body class="hold-transition sidebar-mini">
+  <div class="wrapper">
+    <!-- Navbar -->
+    <nav class="main-header navbar navbar-expand navbar-white navbar-light">
+      <!-- Left navbar links -->
+      <ul class="navbar-nav">
+        <li class="nav-item">
+          <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="bi bi-grid"></i></a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="index3.html" class="nav-link">Home</a>
+        </li>
+        <li class="nav-item d-none d-sm-inline-block">
+          <a href="#" class="nav-link">Contact</a>
+        </li>
+      </ul>
 
-                <ul class="sidebar-nav">
-                    <li class="sidebar-header">
-                        Pages
-                    </li>
-
-                    <li class="sidebar-item active">
-                        <a class="sidebar-link" href="dashboard>
-              <i class="align-middle" data-feather="sliders"></i> <span class="align-middle">Dashboard</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="profile
-              <i class="align-middle" data-feather="user"></i> <span class="align-middle">Profile</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="signin
-              <i class="align-middle" data-feather="log-in"></i> <span class="align-middle">Sign In</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="signup">
-              <i class="align-middle" data-feather="user-plus"></i> <span class="align-middle">Sign Up</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="blank
-              <i class="align-middle" data-feather="book"></i> <span class="align-middle">Blank</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-header">
-                        Tools & Components
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="buttons
-              <i class="align-middle" data-feather="square"></i> <span class="align-middle">Buttons</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="forms">
-              <i class="align-middle" data-feather="check-square"></i> <span class="align-middle">Forms</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="cards">
-              <i class="align-middle" data-feather="grid"></i> <span class="align-middle">Cards</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="typography
-              <i class="align-middle" data-feather="align-left"></i> <span class="align-middle">Typography</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="icons">
-              <i class="align-middle" data-feather="coffee"></i> <span class="align-middle">Icons</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-header">
-                        Plugins & Addons
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="charts-chartjs.html">
-              <i class="align-middle" data-feather="bar-chart-2"></i> <span class="align-middle">Charts</span>
-            </a>
-                    </li>
-
-                    <li class="sidebar-item">
-                        <a class="sidebar-link" href="maps-google.html">
-              <i class="align-middle" data-feather="map"></i> <span class="align-middle">Maps</span>
-            </a>
-                    </li>
-                </ul>
-
-                <div class="sidebar-cta">
-                    <div class="sidebar-cta-content">
-                        <strong class="d-inline-block mb-2">Upgrade to Pro</strong>
-                        <div class="mb-3 text-sm">
-                            Are you looking for more components? Check out our premium version.
-                        </div>
-                        <div class="d-grid">
-                            <a href="upgrade-to-pro.html" class="btn btn-primary">Upgrade to Pro</a>
-                        </div>
-                    </div>
+      <!-- Right navbar links -->
+      <ul class="navbar-nav ml-auto">
+        <!-- Navbar Search -->
+        <li class="nav-item">
+          <a class="nav-link" data-widget="navbar-search" href="#" role="button">
+            <i class="bi bi-search"></i>
+          </a>
+          <div class="navbar-search-block">
+            <form class="form-inline">
+              <div class="input-group input-group-sm">
+                <input class="form-control form-control-navbar" type="search" placeholder="Search" aria-label="Search">
+                <div class="input-group-append">
+                  <button class="btn btn-navbar" type="submit">
+                    <i class="bi bi-search"></i>
+                  </button>
+                  <button class="btn btn-navbar" type="button" data-widget="navbar-search">
+                    <i class="bi bi-times"></i>
+                  </button>
                 </div>
-            </div>
-        </nav>
+              </div>
+            </form>
+          </div>
+        </li>
 
-        <div class="main">
-            <nav class="navbar navbar-expand navbar-light navbar-bg">
-                <a class="sidebar-toggle js-sidebar-toggle">
-          <i class="hamburger align-self-center"></i>
-        </a>
-
-                <div class="navbar-collapse collapse">
-                    <ul class="navbar-nav navbar-align">
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="#" id="alertsDropdown" data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <i class="align-middle" data-feather="bell"></i>
-                                    <span class="indicator">4</span>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="alertsDropdown">
-                                <div class="dropdown-menu-header">
-                                    4 New Notifications
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-danger" data-feather="alert-circle"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Update completed</div>
-                                                <div class="text-muted small mt-1">Restart server 12 to complete the update.</div>
-                                                <div class="text-muted small mt-1">30m ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-warning" data-feather="bell"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Lorem ipsum</div>
-                                                <div class="text-muted small mt-1">Aliquam ex eros, imperdiet vulputate hendrerit et.</div>
-                                                <div class="text-muted small mt-1">2h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-primary" data-feather="home"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">Login from 192.186.1.8</div>
-                                                <div class="text-muted small mt-1">5h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <i class="text-success" data-feather="user-plus"></i>
-                                            </div>
-                                            <div class="col-10">
-                                                <div class="text-dark">New connection</div>
-                                                <div class="text-muted small mt-1">Christina accepted your request.</div>
-                                                <div class="text-muted small mt-1">14h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-menu-footer">
-                                    <a href="#" class="text-muted">Show all notifications</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle" href="#" id="messagesDropdown" data-bs-toggle="dropdown">
-                                <div class="position-relative">
-                                    <i class="align-middle" data-feather="message-square"></i>
-                                </div>
-                            </a>
-                            <div class="dropdown-menu dropdown-menu-lg dropdown-menu-end py-0" aria-labelledby="messagesDropdown">
-                                <div class="dropdown-menu-header">
-                                    <div class="position-relative">
-                                        4 New Messages
-                                    </div>
-                                </div>
-                                <div class="list-group">
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="img/avatars/avatar-5.jpg" class="avatar img-fluid rounded-circle" alt="Vanessa Tucker">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">Vanessa Tucker</div>
-                                                <div class="text-muted small mt-1">Nam pretium turpis et arcu. Duis arcu tortor.</div>
-                                                <div class="text-muted small mt-1">15m ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="img/avatars/avatar-2.jpg" class="avatar img-fluid rounded-circle" alt="William Harris">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">William Harris</div>
-                                                <div class="text-muted small mt-1">Curabitur ligula sapien euismod vitae.</div>
-                                                <div class="text-muted small mt-1">2h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="img/avatars/avatar-4.jpg" class="avatar img-fluid rounded-circle" alt="Christina Mason">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">Christina Mason</div>
-                                                <div class="text-muted small mt-1">Pellentesque auctor neque nec urna.</div>
-                                                <div class="text-muted small mt-1">4h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                    <a href="#" class="list-group-item">
-                                        <div class="row g-0 align-items-center">
-                                            <div class="col-2">
-                                                <img src="img/avatars/avatar-3.jpg" class="avatar img-fluid rounded-circle" alt="Sharon Lessman">
-                                            </div>
-                                            <div class="col-10 ps-2">
-                                                <div class="text-dark">Sharon Lessman</div>
-                                                <div class="text-muted small mt-1">Aenean tellus metus, bibendum sed, posuere ac, mattis non.</div>
-                                                <div class="text-muted small mt-1">5h ago</div>
-                                            </div>
-                                        </div>
-                                    </a>
-                                </div>
-                                <div class="dropdown-menu-footer">
-                                    <a href="#" class="text-muted">Show all messages</a>
-                                </div>
-                            </div>
-                        </li>
-                        <li class="nav-item dropdown">
-                            <a class="nav-icon dropdown-toggle d-inline-block d-sm-none" href="#" data-bs-toggle="dropdown">
-                <i class="align-middle" data-feather="settings"></i>
-              </a>
-
-                            <a class="nav-link dropdown-toggle d-none d-sm-inline-block" href="#" data-bs-toggle="dropdown">
-                <img src="img/avatars/avatar.jpg" class="avatar img-fluid rounded me-1" alt="Charles Hall" /> <span class="text-dark">Charles Hall</span>
-              </a>
-                            <div class="dropdown-menu dropdown-menu-end">
-                                <a class="dropdown-item" href="profile"align-middle me-1" data-feather="user"></i> Profile</a>
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="pie-chart"></i> Analytics</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="dashboard><i class="align-middle me-1" data-feather="settings"></i> Settings & Privacy</a>
-                                <a class="dropdown-item" href="#"><i class="align-middle me-1" data-feather="help-circle"></i> Help Center</a>
-                                <div class="dropdown-divider"></div>
-                                <a class="dropdown-item" href="#">Log out</a>
-                            </div>
-                        </li>
-                    </ul>
+        <!-- Messages Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="bi bi-comments"></i>
+            <span class="badge badge-danger navbar-badge">3</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="dist/img/user1-128x128.jpg" alt="User Avatar" class="img-size-50 mr-3 img-circle">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Brad Diesel
+                    <span class="float-right text-sm text-danger"><i class="bi bi-star"></i></span>
+                  </h3>
+                  <p class="text-sm">Call me whenever you can...</p>
+                  <p class="text-sm text-muted"><i class="bi bi-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
-            </nav>
-
-            <main class="content">
-                <div class="container-fluid p-0">
-
-                    <h1 class="h3 mb-3"><strong>Analytics</strong> Dashboard</h1>
-
-                    <div class="row">
-                        <div class="col-xl-6 col-xxl-5 d-flex">
-                            <div class="w-100">
-                                <div class="row">
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col mt-0">
-                                                        <h5 class="card-title">Sales</h5>
-                                                    </div>
-
-                                                    <div class="col-auto">
-                                                        <div class="stat text-primary">
-                                                            <i class="align-middle" data-feather="truck"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h1 class="mt-1 mb-3">2.382</h1>
-                                                <div class="mb-0">
-                                                    <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -3.65% </span>
-                                                    <span class="text-muted">Since last week</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col mt-0">
-                                                        <h5 class="card-title">Visitors</h5>
-                                                    </div>
-
-                                                    <div class="col-auto">
-                                                        <div class="stat text-primary">
-                                                            <i class="align-middle" data-feather="users"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h1 class="mt-1 mb-3">14.212</h1>
-                                                <div class="mb-0">
-                                                    <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 5.25% </span>
-                                                    <span class="text-muted">Since last week</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                    <div class="col-sm-6">
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col mt-0">
-                                                        <h5 class="card-title">Earnings</h5>
-                                                    </div>
-
-                                                    <div class="col-auto">
-                                                        <div class="stat text-primary">
-                                                            <i class="align-middle" data-feather="dollar-sign"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h1 class="mt-1 mb-3">$21.300</h1>
-                                                <div class="mb-0">
-                                                    <span class="text-success"> <i class="mdi mdi-arrow-bottom-right"></i> 6.65% </span>
-                                                    <span class="text-muted">Since last week</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                        <div class="card">
-                                            <div class="card-body">
-                                                <div class="row">
-                                                    <div class="col mt-0">
-                                                        <h5 class="card-title">Orders</h5>
-                                                    </div>
-
-                                                    <div class="col-auto">
-                                                        <div class="stat text-primary">
-                                                            <i class="align-middle" data-feather="shopping-cart"></i>
-                                                        </div>
-                                                    </div>
-                                                </div>
-                                                <h1 class="mt-1 mb-3">64</h1>
-                                                <div class="mb-0">
-                                                    <span class="text-danger"> <i class="mdi mdi-arrow-bottom-right"></i> -2.25% </span>
-                                                    <span class="text-muted">Since last week</span>
-                                                </div>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-
-                        <div class="col-xl-6 col-xxl-7">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Recent Movement</h5>
-                                </div>
-                                <div class="card-body py-3">
-                                    <div class="chart chart-sm">
-                                        <canvas id="chartjs-dashboard-line"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-md-6 col-xxl-3 d-flex order-2 order-xxl-3">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Browser Usage</h5>
-                                </div>
-                                <div class="card-body d-flex">
-                                    <div class="align-self-center w-100">
-                                        <div class="py-3">
-                                            <div class="chart chart-xs">
-                                                <canvas id="chartjs-dashboard-pie"></canvas>
-                                            </div>
-                                        </div>
-
-                                        <table class="table mb-0">
-                                            <tbody>
-                                                <tr>
-                                                    <td>Chrome</td>
-                                                    <td class="text-end">4306</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>Firefox</td>
-                                                    <td class="text-end">3801</td>
-                                                </tr>
-                                                <tr>
-                                                    <td>IE</td>
-                                                    <td class="text-end">1689</td>
-                                                </tr>
-                                            </tbody>
-                                        </table>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-12 col-xxl-6 d-flex order-3 order-xxl-2">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Real-Time</h5>
-                                </div>
-                                <div class="card-body px-4">
-                                    <div id="world_map" style="height:350px;"></div>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-12 col-md-6 col-xxl-3 d-flex order-1 order-xxl-1">
-                            <div class="card flex-fill">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Calendar</h5>
-                                </div>
-                                <div class="card-body d-flex">
-                                    <div class="align-self-center w-100">
-                                        <div class="chart">
-                                            <div id="datetimepicker-dashboard"></div>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="row">
-                        <div class="col-12 col-lg-8 col-xxl-9 d-flex">
-                            <div class="card flex-fill">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Latest Projects</h5>
-                                </div>
-                                <table class="table table-hover my-0">
-                                    <thead>
-                                        <tr>
-                                            <th>Name</th>
-                                            <th class="d-none d-xl-table-cell">Start Date</th>
-                                            <th class="d-none d-xl-table-cell">End Date</th>
-                                            <th>Status</th>
-                                            <th class="d-none d-md-table-cell">Assignee</th>
-                                        </tr>
-                                    </thead>
-                                    <tbody>
-                                        <tr>
-                                            <td>Project Apollo</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td class="d-none d-md-table-cell">Vanessa Tucker</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Fireball</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-danger">Cancelled</span></td>
-                                            <td class="d-none d-md-table-cell">William Harris</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Hades</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td class="d-none d-md-table-cell">Sharon Lessman</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Nitro</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-warning">In progress</span></td>
-                                            <td class="d-none d-md-table-cell">Vanessa Tucker</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Phoenix</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td class="d-none d-md-table-cell">William Harris</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project X</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td class="d-none d-md-table-cell">Sharon Lessman</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Romeo</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-success">Done</span></td>
-                                            <td class="d-none d-md-table-cell">Christina Mason</td>
-                                        </tr>
-                                        <tr>
-                                            <td>Project Wombat</td>
-                                            <td class="d-none d-xl-table-cell">01/01/2021</td>
-                                            <td class="d-none d-xl-table-cell">31/06/2021</td>
-                                            <td><span class="badge bg-warning">In progress</span></td>
-                                            <td class="d-none d-md-table-cell">William Harris</td>
-                                        </tr>
-                                    </tbody>
-                                </table>
-                            </div>
-                        </div>
-                        <div class="col-12 col-lg-4 col-xxl-3 d-flex">
-                            <div class="card flex-fill w-100">
-                                <div class="card-header">
-
-                                    <h5 class="card-title mb-0">Monthly Sales</h5>
-                                </div>
-                                <div class="card-body d-flex w-100">
-                                    <div class="align-self-center chart chart-lg">
-                                        <canvas id="chartjs-dashboard-bar"></canvas>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="dist/img/user8-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    John Pierce
+                    <span class="float-right text-sm text-muted"><i class="bi bi-star"></i></span>
+                  </h3>
+                  <p class="text-sm">I got your message bro</p>
+                  <p class="text-sm text-muted"><i class="bi bi-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
-            </main>
-
-            <footer class="footer">
-                <div class="container-fluid">
-                    <div class="row text-muted">
-                        <div class="col-6 text-start">
-                            <p class="mb-0">
-                                <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>AdminKit</strong></a> - <a class="text-muted" href="https://adminkit.io/" target="_blank"><strong>Bootstrap Admin Template</strong></a>								&copy;
-                            </p>
-                        </div>
-                        <div class="col-6 text-end">
-                            <ul class="list-inline">
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Support</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Help Center</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Privacy</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a class="text-muted" href="https://adminkit.io/" target="_blank">Terms</a>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <!-- Message Start -->
+              <div class="media">
+                <img src="dist/img/user3-128x128.jpg" alt="User Avatar" class="img-size-50 img-circle mr-3">
+                <div class="media-body">
+                  <h3 class="dropdown-item-title">
+                    Nora Silvester
+                    <span class="float-right text-sm text-warning"><i class="bi bi-star"></i></span>
+                  </h3>
+                  <p class="text-sm">The subject goes here</p>
+                  <p class="text-sm text-muted"><i class="bi bi-clock mr-1"></i> 4 Hours Ago</p>
                 </div>
-            </footer>
+              </div>
+              <!-- Message End -->
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Messages</a>
+          </div>
+        </li>
+        <!-- Notifications Dropdown Menu -->
+        <li class="nav-item dropdown">
+          <a class="nav-link" data-toggle="dropdown" href="#">
+            <i class="bi bi-bell"></i>
+            <span class="badge badge-warning navbar-badge">15</span>
+          </a>
+          <div class="dropdown-menu dropdown-menu-lg dropdown-menu-right">
+            <span class="dropdown-item dropdown-header">15 Notifications</span>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="bi bi-envelope mr-2"></i> 4 new messages
+              <span class="float-right text-muted text-sm">3 mins</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="bi bi-users mr-2"></i> 8 friend requests
+              <span class="float-right text-muted text-sm">12 hours</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item">
+              <i class="bi bi-file mr-2"></i> 3 new reports
+              <span class="float-right text-muted text-sm">2 days</span>
+            </a>
+            <div class="dropdown-divider"></div>
+            <a href="#" class="dropdown-item dropdown-footer">See All Notifications</a>
+          </div>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="fullscreen" href="#" role="button">
+            <i class="bi bi-expand-arrows-alt"></i>
+          </a>
+        </li>
+        <li class="nav-item">
+          <a class="nav-link" data-widget="control-sidebar" data-slide="true" href="#" role="button">
+            <i class="bi bi-th-large"></i>
+          </a>
+        </li>
+      </ul>
+    </nav>
+    <!-- /.navbar -->
+
+    <!-- Main Sidebar Container -->
+    <aside class="main-sidebar sidebar-dark-primary elevation-4">
+      <!-- Brand Logo -->
+      <a href="index3.html" class="brand-link">
+        <img src="dist/img/AdminLTELogo.png" alt="AdminLTE Logo" class="brand-image img-circle elevation-3"
+          style="opacity: .8">
+        <span class="brand-text font-weight-light">AdminLTE 3</span>
+      </a>
+
+      <!-- Sidebar -->
+      <div class="sidebar">
+        <!-- Sidebar user panel (optional) -->
+        <div class="user-panel mt-3 pb-3 mb-3 d-flex">
+          <div class="image">
+            <img src="dist/img/user2-160x160.jpg" class="img-circle elevation-2" alt="User Image">
+          </div>
+          <div class="info">
+            <a href="#" class="d-block">Alexander Pierce</a>
+          </div>
         </div>
+
+        <!-- SidebarSearch Form -->
+        <div class="form-inline">
+          <div class="input-group" data-widget="sidebar-search">
+            <input class="form-control form-control-sidebar" type="search" placeholder="Search" aria-label="Search">
+            <div class="input-group-append">
+              <button class="btn btn-sidebar">
+                <i class="bi bi-search fa-fw"></i>
+              </button>
+            </div>
+          </div>
+        </div>
+
+        <!-- Sidebar Menu -->
+        <nav class="mt-2">
+          <ul class="nav nav-pills nav-sidebar flex-column" data-widget="treeview" role="menu" data-accordion="false">
+            <!-- Add icons to the links using the .nav-icon class
+               with font-awesome or any other icon font library -->
+            <li class="nav-item menu-open">
+              <a href="#" class="nav-link active">
+                <i class="nav-icon bi bi-tachometer-alt"></i>
+                <p>
+                  Dashboard
+                  <i class="right bi bi-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="./index.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Dashboard v1</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index2.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Dashboard v2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="./index3.html" class="nav-link active">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Dashboard v3</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="pages/widgets.html" class="nav-link">
+                <i class="nav-icon bi bi-th"></i>
+                <p>
+                  Widgets
+                  <span class="right badge badge-danger">New</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-copy"></i>
+                <p>
+                  Layout Options
+                  <i class="bi bi-angle-left right"></i>
+                  <span class="badge badge-info right">6</span>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/layout/top-nav.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Top Navigation</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/top-nav-sidebar.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Top Navigation + Sidebar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/boxed.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Boxed</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-sidebar.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Fixed Sidebar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-sidebar-custom.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Fixed Sidebar <small>+ Custom Area</small></p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-topnav.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Fixed Navbar</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/fixed-footer.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Fixed Footer</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/layout/collapsed-sidebar.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Collapsed Sidebar</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-chart-pie"></i>
+                <p>
+                  Charts
+                  <i class="right bi bi-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/charts/chartjs.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>ChartJS</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/flot.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Flot</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/inline.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Inline</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/charts/uplot.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>uPlot</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-tree"></i>
+                <p>
+                  UI Elements
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/UI/general.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>General</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/icons.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Icons</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/buttons.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Buttons</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/sliders.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Sliders</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/modals.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Modals & Alerts</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/navbar.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Navbar & Tabs</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/timeline.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Timeline</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/UI/ribbons.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Ribbons</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-edit"></i>
+                <p>
+                  Forms
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/forms/general.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>General Elements</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/advanced.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Advanced Elements</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/editors.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Editors</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/forms/validation.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Validation</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-table"></i>
+                <p>
+                  Tables
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/tables/simple.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Simple Tables</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/tables/data.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>DataTables</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/tables/jsgrid.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>jsGrid</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-header">EXAMPLES</li>
+            <li class="nav-item">
+              <a href="pages/calendar.html" class="nav-link">
+                <i class="nav-icon bi bi-calendar-alt"></i>
+                <p>
+                  Calendar
+                  <span class="badge badge-info right">2</span>
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/gallery.html" class="nav-link">
+                <i class="nav-icon bi bi-image"></i>
+                <p>
+                  Gallery
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="pages/kanban.html" class="nav-link">
+                <i class="nav-icon bi bi-columns"></i>
+                <p>
+                  Kanban Board
+                </p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-envelope"></i>
+                <p>
+                  Mailbox
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/mailbox/mailbox.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Inbox</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/mailbox/compose.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Compose</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/mailbox/read-mail.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Read</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-book"></i>
+                <p>
+                  Pages
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/examples/invoice.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Invoice</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/profile.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Profile</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/e-commerce.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>E-commerce</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/projects.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Projects</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/project-add.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Project Add</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/project-edit.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Project Edit</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/project-detail.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Project Detail</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/contacts.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Contacts</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/faq.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>FAQ</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/contact-us.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Contact us</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-plus-square"></i>
+                <p>
+                  Extras
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>
+                      Login & Register v1
+                      <i class="bi bi-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/examples/login.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Login v1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/register.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Register v1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/forgot-password.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Forgot Password v1</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/recover-password.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Recover Password v1</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>
+                      Login & Register v2
+                      <i class="bi bi-angle-left right"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="pages/examples/login-v2.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Login v2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/register-v2.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Register v2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/forgot-password-v2.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Forgot Password v2</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="pages/examples/recover-password-v2.html" class="nav-link">
+                        <i class="bi bi-circle nav-icon"></i>
+                        <p>Recover Password v2</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/lockscreen.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Lockscreen</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/legacy-user-menu.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Legacy User Menu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/language-menu.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Language Menu</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/404.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Error 404</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/500.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Error 500</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/pace.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Pace</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/examples/blank.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Blank Page</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="starter.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Starter Page</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-search"></i>
+                <p>
+                  Search
+                  <i class="bi bi-angle-left right"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="pages/search/simple.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Simple Search</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="pages/search/enhanced.html" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Enhanced</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-header">MISCELLANEOUS</li>
+            <li class="nav-item">
+              <a href="iframe.html" class="nav-link">
+                <i class="nav-icon bi bi-ellipsis-h"></i>
+                <p>Tabbed IFrame Plugin</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="https://adminlte.io/docs/3.1/" class="nav-link">
+                <i class="nav-icon bi bi-file"></i>
+                <p>Documentation</p>
+              </a>
+            </li>
+            <li class="nav-header">MULTI LEVEL EXAMPLE</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-circle nav-icon"></i>
+                <p>Level 1</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle"></i>
+                <p>
+                  Level 1
+                  <i class="right bi bi-angle-left"></i>
+                </p>
+              </a>
+              <ul class="nav nav-treeview">
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Level 2</p>
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>
+                      Level 2
+                      <i class="right bi bi-angle-left"></i>
+                    </p>
+                  </a>
+                  <ul class="nav nav-treeview">
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="bi bi-dot-circle nav-icon"></i>
+                        <p>Level 3</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="bi bi-dot-circle nav-icon"></i>
+                        <p>Level 3</p>
+                      </a>
+                    </li>
+                    <li class="nav-item">
+                      <a href="#" class="nav-link">
+                        <i class="bi bi-dot-circle nav-icon"></i>
+                        <p>Level 3</p>
+                      </a>
+                    </li>
+                  </ul>
+                </li>
+                <li class="nav-item">
+                  <a href="#" class="nav-link">
+                    <i class="bi bi-circle nav-icon"></i>
+                    <p>Level 2</p>
+                  </a>
+                </li>
+              </ul>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="bi bi-circle nav-icon"></i>
+                <p>Level 1</p>
+              </a>
+            </li>
+            <li class="nav-header">LABELS</li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-danger"></i>
+                <p class="text">Important</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-warning"></i>
+                <p>Warning</p>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a href="#" class="nav-link">
+                <i class="nav-icon bi bi-circle text-info"></i>
+                <p>Informational</p>
+              </a>
+            </li>
+          </ul>
+        </nav>
+        <!-- /.sidebar-menu -->
+      </div>
+      <!-- /.sidebar -->
+    </aside>
+
+    <!-- Content Wrapper. Contains page content -->
+    <div class="content-wrapper">
+      <!-- Content Header (Page header) -->
+      <div class="content-header">
+        <div class="container-fluid">
+          <div class="row mb-2">
+            <div class="col-sm-6">
+              <h1 class="m-0">Dashboard v3</h1>
+            </div><!-- /.col -->
+            <div class="col-sm-6">
+              <ol class="breadcrumb float-sm-right">
+                <li class="breadcrumb-item"><a href="#">Home</a></li>
+                <li class="breadcrumb-item active">Dashboard v3</li>
+              </ol>
+            </div><!-- /.col -->
+          </div><!-- /.row -->
+        </div><!-- /.container-fluid -->
+      </div>
+      <!-- /.content-header -->
+
+      <!-- Main content -->
+      <div class="content">
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Online Store Visitors</h3>
+                    <a href="javascript:void(0);">View Report</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span class="text-bold text-lg">820</span>
+                      <span>Visitors Over Time</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span class="text-success">
+                        <i class="bi bi-arrow-up"></i> 12.5%
+                      </span>
+                      <span class="text-muted">Since last week</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+
+                  <div class="position-relative mb-4">
+                    <canvas id="visitors-chart" height="200"></canvas>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                      <i class="bi bi-square text-primary"></i> This Week
+                    </span>
+
+                    <span>
+                      <i class="bi bi-square text-gray"></i> Last Week
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <div class="card">
+                <div class="card-header border-0">
+                  <h3 class="card-title">Products</h3>
+                  <div class="card-tools">
+                    <a href="#" class="btn btn-tool btn-sm">
+                      <i class="bi bi-download"></i>
+                    </a>
+                    <a href="#" class="btn btn-tool btn-sm">
+                      <i class="bi bi-bars"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body table-responsive p-0">
+                  <table class="table table-striped table-valign-middle">
+                    <thead>
+                      <tr>
+                        <th>Product</th>
+                        <th>Price</th>
+                        <th>Sales</th>
+                        <th>More</th>
+                      </tr>
+                    </thead>
+                    <tbody>
+                      <tr>
+                        <td>
+                          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                          Some Product
+                        </td>
+                        <td>$13 USD</td>
+                        <td>
+                          <small class="text-success mr-1">
+                            <i class="bi bi-arrow-up"></i>
+                            12%
+                          </small>
+                          12,000 Sold
+                        </td>
+                        <td>
+                          <a href="#" class="text-muted">
+                            <i class="bi bi-search"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                          Another Product
+                        </td>
+                        <td>$29 USD</td>
+                        <td>
+                          <small class="text-warning mr-1">
+                            <i class="bi bi-arrow-down"></i>
+                            0.5%
+                          </small>
+                          123,234 Sold
+                        </td>
+                        <td>
+                          <a href="#" class="text-muted">
+                            <i class="bi bi-search"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                          Amazing Product
+                        </td>
+                        <td>$1,230 USD</td>
+                        <td>
+                          <small class="text-danger mr-1">
+                            <i class="bi bi-arrow-down"></i>
+                            3%
+                          </small>
+                          198 Sold
+                        </td>
+                        <td>
+                          <a href="#" class="text-muted">
+                            <i class="bi bi-search"></i>
+                          </a>
+                        </td>
+                      </tr>
+                      <tr>
+                        <td>
+                          <img src="dist/img/default-150x150.png" alt="Product 1" class="img-circle img-size-32 mr-2">
+                          Perfect Item
+                          <span class="badge bg-danger">NEW</span>
+                        </td>
+                        <td>$199 USD</td>
+                        <td>
+                          <small class="text-success mr-1">
+                            <i class="bi bi-arrow-up"></i>
+                            63%
+                          </small>
+                          87 Sold
+                        </td>
+                        <td>
+                          <a href="#" class="text-muted">
+                            <i class="bi bi-search"></i>
+                          </a>
+                        </td>
+                      </tr>
+                    </tbody>
+                  </table>
+                </div>
+              </div>
+              <!-- /.card -->
+            </div>
+            <!-- /.col-md-6 -->
+            <div class="col-lg-6">
+              <div class="card">
+                <div class="card-header border-0">
+                  <div class="d-flex justify-content-between">
+                    <h3 class="card-title">Sales</h3>
+                    <a href="javascript:void(0);">View Report</a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex">
+                    <p class="d-flex flex-column">
+                      <span class="text-bold text-lg">$18,230.00</span>
+                      <span>Sales Over Time</span>
+                    </p>
+                    <p class="ml-auto d-flex flex-column text-right">
+                      <span class="text-success">
+                        <i class="bi bi-arrow-up"></i> 33.1%
+                      </span>
+                      <span class="text-muted">Since last month</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+
+                  <div class="position-relative mb-4">
+                    <canvas id="sales-chart" height="200"></canvas>
+                  </div>
+
+                  <div class="d-flex flex-row justify-content-end">
+                    <span class="mr-2">
+                      <i class="bi bi-square text-primary"></i> This year
+                    </span>
+
+                    <span>
+                      <i class="bi bi-square text-gray"></i> Last year
+                    </span>
+                  </div>
+                </div>
+              </div>
+              <!-- /.card -->
+
+              <div class="card">
+                <div class="card-header border-0">
+                  <h3 class="card-title">Online Store Overview</h3>
+                  <div class="card-tools">
+                    <a href="#" class="btn btn-sm btn-tool">
+                      <i class="bi bi-download"></i>
+                    </a>
+                    <a href="#" class="btn btn-sm btn-tool">
+                      <i class="bi bi-bars"></i>
+                    </a>
+                  </div>
+                </div>
+                <div class="card-body">
+                  <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                    <p class="text-success text-xl">
+                      <i class="ion ion-ios-refresh-empty"></i>
+                    </p>
+                    <p class="d-flex flex-column text-right">
+                      <span class="font-weight-bold">
+                        <i class="ion ion-android-arrow-up text-success"></i> 12%
+                      </span>
+                      <span class="text-muted">CONVERSION RATE</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+                  <div class="d-flex justify-content-between align-items-center border-bottom mb-3">
+                    <p class="text-warning text-xl">
+                      <i class="ion ion-ios-cart-outline"></i>
+                    </p>
+                    <p class="d-flex flex-column text-right">
+                      <span class="font-weight-bold">
+                        <i class="ion ion-android-arrow-up text-warning"></i> 0.8%
+                      </span>
+                      <span class="text-muted">SALES RATE</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+                  <div class="d-flex justify-content-between align-items-center mb-0">
+                    <p class="text-danger text-xl">
+                      <i class="ion ion-ios-people-outline"></i>
+                    </p>
+                    <p class="d-flex flex-column text-right">
+                      <span class="font-weight-bold">
+                        <i class="ion ion-android-arrow-down text-danger"></i> 1%
+                      </span>
+                      <span class="text-muted">REGISTRATION RATE</span>
+                    </p>
+                  </div>
+                  <!-- /.d-flex -->
+                </div>
+              </div>
+            </div>
+            <!-- /.col-md-6 -->
+          </div>
+          <!-- /.row -->
+        </div>
+        <!-- /.container-fluid -->
+      </div>
+      <!-- /.content -->
     </div>
+    <!-- /.content-wrapper -->
 
-    <script src="js/app.js"></script>
+    <!-- Control Sidebar -->
+    <aside class="control-sidebar control-sidebar-dark">
+      <!-- Control sidebar content goes here -->
+    </aside>
+    <!-- /.control-sidebar -->
 
-    <script type="module">
-        document.addEventListener("DOMContentLoaded", function() {
-            var ctx = document.getElementById("chartjs-dashboard-line").getContext("2d");
-            var gradient = ctx.createLinearGradient(0, 0, 0, 225);
-            gradient.addColorStop(0, "rgba(215, 227, 244, 1)");
-            gradient.addColorStop(1, "rgba(215, 227, 244, 0)");
-            // Line chart
-            new Chart(document.getElementById("chartjs-dashboard-line"), {
-                type: "line",
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    datasets: [{
-                        label: "Sales ($)",
-                        fill: true,
-                        backgroundColor: gradient,
-                        borderColor: window.theme.primary,
-                        data: [
-                            2115,
-                            1562,
-                            1584,
-                            1892,
-                            1587,
-                            1923,
-                            2566,
-                            2448,
-                            2805,
-                            3438,
-                            2917,
-                            3327
-                        ]
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-                    tooltips: {
-                        intersect: false
-                    },
-                    hover: {
-                        intersect: true
-                    },
-                    plugins: {
-                        filler: {
-                            propagate: false
-                        }
-                    },
-                    scales: {
-                        xAxes: [{
-                            reverse: true,
-                            gridLines: {
-                                color: "rgba(0,0,0,0.0)"
-                            }
-                        }],
-                        yAxes: [{
-                            ticks: {
-                                stepSize: 1000
-                            },
-                            display: true,
-                            borderDash: [3, 3],
-                            gridLines: {
-                                color: "rgba(0,0,0,0.0)"
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    </script>
-    <script type="module">
-        document.addEventListener("DOMContentLoaded", function() {
-            // Pie chart
-            new Chart(document.getElementById("chartjs-dashboard-pie"), {
-                type: "pie",
-                data: {
-                    labels: ["Chrome", "Firefox", "IE"],
-                    datasets: [{
-                        data: [4306, 3801, 1689],
-                        backgroundColor: [
-                            window.theme.primary,
-                            window.theme.warning,
-                            window.theme.danger
-                        ],
-                        borderWidth: 5
-                    }]
-                },
-                options: {
-                    responsive: !window.MSInputMethodContext,
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-                    cutoutPercentage: 75
-                }
-            });
-        });
-    </script>
-    <script type="module">
-        document.addEventListener("DOMContentLoaded", function() {
-            // Bar chart
-            new Chart(document.getElementById("chartjs-dashboard-bar"), {
-                type: "bar",
-                data: {
-                    labels: ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
-                    datasets: [{
-                        label: "This year",
-                        backgroundColor: window.theme.primary,
-                        borderColor: window.theme.primary,
-                        hoverBackgroundColor: window.theme.primary,
-                        hoverBorderColor: window.theme.primary,
-                        data: [54, 67, 41, 55, 62, 45, 55, 73, 60, 76, 48, 79],
-                        barPercentage: .75,
-                        categoryPercentage: .5
-                    }]
-                },
-                options: {
-                    maintainAspectRatio: false,
-                    legend: {
-                        display: false
-                    },
-                    scales: {
-                        yAxes: [{
-                            gridLines: {
-                                display: false
-                            },
-                            stacked: false,
-                            ticks: {
-                                stepSize: 20
-                            }
-                        }],
-                        xAxes: [{
-                            stacked: false,
-                            gridLines: {
-                                color: "transparent"
-                            }
-                        }]
-                    }
-                }
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var markers = [{
-                    coords: [31.230391, 121.473701],
-                    name: "Shanghai"
-                },
-                {
-                    coords: [28.704060, 77.102493],
-                    name: "Delhi"
-                },
-                {
-                    coords: [6.524379, 3.379206],
-                    name: "Lagos"
-                },
-                {
-                    coords: [35.689487, 139.691711],
-                    name: "Tokyo"
-                },
-                {
-                    coords: [23.129110, 113.264381],
-                    name: "Guangzhou"
-                },
-                {
-                    coords: [40.7127837, -74.0059413],
-                    name: "New York"
-                },
-                {
-                    coords: [34.052235, -118.243683],
-                    name: "Los Angeles"
-                },
-                {
-                    coords: [41.878113, -87.629799],
-                    name: "Chicago"
-                },
-                {
-                    coords: [51.507351, -0.127758],
-                    name: "London"
-                },
-                {
-                    coords: [40.416775, -3.703790],
-                    name: "Madrid "
-                }
-            ];
-            var map = new jsVectorMap({
-                map: "world",
-                selector: "#world_map",
-                zoomButtons: true,
-                markers: markers,
-                markerStyle: {
-                    initial: {
-                        r: 9,
-                        strokeWidth: 7,
-                        stokeOpacity: .4,
-                        fill: window.theme.primary
-                    },
-                    hover: {
-                        fill: window.theme.primary,
-                        stroke: window.theme.primary
-                    }
-                },
-                zoomOnScroll: false
-            });
-            window.addEventListener("resize", () => {
-                map.updateSize();
-            });
-        });
-    </script>
-    <script>
-        document.addEventListener("DOMContentLoaded", function() {
-            var date = new Date(Date.now() - 5 * 24 * 60 * 60 * 1000);
-            var defaultDate = date.getUTCFullYear() + "-" + (date.getUTCMonth() + 1) + "-" + date.getUTCDate();
-            document.getElementById("datetimepicker-dashboard").flatpickr({
-                inline: true,
-                prevArrow: "<span title=\"Previous month\">&laquo;</span>",
-                nextArrow: "<span title=\"Next month\">&raquo;</span>",
-                defaultDate: defaultDate
-            });
-        });
-    </script>
-
+    <!-- Main Footer -->
+    <footer class="main-footer">
+      <strong>Copyright &copy; 2014-2021 <a href="https://adminlte.io">AdminLTE.io</a>.</strong>
+      All rights reserved.
+      <div class="float-right d-none d-sm-inline-block">
+        <b>Version</b> 3.2.0
+      </div>
+    </footer>
+  </div>
+  <!-- ./wrapper -->
 </body>
+
 </html>

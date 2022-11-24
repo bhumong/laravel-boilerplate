@@ -25,12 +25,12 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::middleware('auth')->prefix('dashboard')->group(function () {
+Route::middleware('auth')->prefix('admin/dashboard')->group(function () {
     Route::get('/', function () {
         return view('dashboard');
-    })->name('dashboard');
+    })->name('admin/dashboard');
 
-    Route::get('/roles', [RoleController::class, 'index'])->name('roles_index');
+    Route::get('/roles', [RoleController::class, 'index'])->name('admin/roles/index');
 });
 
 require __DIR__ . '/example_page.php';
