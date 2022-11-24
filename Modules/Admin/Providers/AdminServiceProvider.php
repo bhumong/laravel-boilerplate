@@ -2,8 +2,9 @@
 
 namespace Modules\Admin\Providers;
 
+use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Illuminate\Database\Eloquent\Factory;
+use Modules\Admin\View\Components\AppLayout;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -51,7 +52,8 @@ class AdminServiceProvider extends ServiceProvider
             module_path($this->moduleName, 'Config/config.php') => config_path($this->moduleNameLower . '.php'),
         ], 'config');
         $this->mergeConfigFrom(
-            module_path($this->moduleName, 'Config/config.php'), $this->moduleNameLower
+            module_path($this->moduleName, 'Config/config.php'),
+            $this->moduleNameLower
         );
     }
 
@@ -71,6 +73,7 @@ class AdminServiceProvider extends ServiceProvider
         ], ['views', $this->moduleNameLower . '-module-views']);
 
         $this->loadViewsFrom(array_merge($this->getPublishableViewPaths(), [$sourcePath]), $this->moduleNameLower);
+        Blade::componentNamespace('Modules\\Admin\\View\\Components', $this->moduleNameLower);
     }
 
     /**

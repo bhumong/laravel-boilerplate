@@ -25,7 +25,7 @@ Route::get('/dashboard', function () {
 
 require __DIR__ . '/auth.php';
 
-Route::middleware('auth')->prefix('admin/dashboard')->group(function () {
+Route::prefix('nonmodule/dashboard')->group(function () {
     Route::get('/', function () {
         return view('dashboard');
     })->name('admin/dashboard');
