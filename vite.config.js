@@ -21,6 +21,7 @@ export default defineConfig({
         alias: {
             '~admin-lte': path.resolve(__dirname, 'node_modules/admin-lte'),
             '~bootstrap-icons': path.resolve(__dirname, 'node_modules/bootstrap-icons'),
+            '~icheck-bootstrap': path.resolve(__dirname, 'node_modules/icheck-bootstrap'),
         }
     }
 });
