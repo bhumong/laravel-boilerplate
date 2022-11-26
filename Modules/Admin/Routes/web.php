@@ -11,6 +11,20 @@
 |
 */
 
-Route::get('/dashboards', function () {
-    return view('admin::dashboard');
+use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
+
+Route::middleware('guest.admin')->group(function () {
+    Route::get('/login', [AuthenticatedSessionController::class, 'loginPage'])->name('admin/login');
+    Route::post('/login', [AuthenticatedSessionController::class, 'doLogin'])->name('admin/doLogin');
+});
+
+
+
+Route::middleware('auth.admin')->group(function () {
+    Route::get('/', function () {
+        return view('admin::dashboard');
+    })->name('admin/dashboard');
+
+    Route::post('logout', [AuthenticatedSessionController::class, 'logout'])
+        ->name('admin/logout');
 });

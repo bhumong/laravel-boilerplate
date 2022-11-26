@@ -12,7 +12,7 @@
     <link rel="stylesheet" href="https://fonts.bunny.net/css2?family=Nunito:wght@400;600;700&display=swap">
 
     <!-- Scripts -->
-    @vite(['resources/css/app.css'])
+    @vite(['resources/css/app.css', 'Modules/Admin/Resources/assets/css/app.css'])
     @yield('page_vendor_css')
     @yield('page_level_css')
 </head>
@@ -28,7 +28,10 @@
                     <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="bi bi-chevron-double-left"></i></a>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
-                    <a href="../../index3.html" class="nav-link">Home</a>
+                    <form action="{{ route('admin/logout') }}" method="post">
+                        @csrf
+                        <button type="submit" class="nav-link btn btn-link">Logout</button>
+                    </form>
                 </li>
                 <li class="nav-item d-none d-sm-inline-block">
                     <a href="#" class="nav-link">Contact</a>
@@ -190,11 +193,10 @@
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    @vite(['resources/js/app.js'])
+    @vite(['resources/js/app.js', 'Modules/Admin/Resources/assets/js/app.js'])
     @yield('page_vendor_js')
     @yield('page_level_js')
     <!-- ./wrapper -->
 </body>
-
 
 </html>
