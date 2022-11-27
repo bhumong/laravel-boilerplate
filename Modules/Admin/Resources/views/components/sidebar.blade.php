@@ -14,7 +14,7 @@
                 <img src="https://avatars.githubusercontent.com/u/25484023?s=96&v=4" class="img-circle elevation-2" alt="User Image">
             </div>
             <div class="info">
-                <a href="#" class="d-block">Alexander Pierce</a>
+                <a href="#" class="d-block">{{ Auth::user()->name }}</a>
             </div>
         </div>
 

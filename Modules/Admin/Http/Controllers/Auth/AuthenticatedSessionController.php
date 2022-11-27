@@ -19,7 +19,7 @@ class AuthenticatedSessionController extends Controller
         if (auth()->user()) {
             return redirect()->route('admin/dashboard');
         }
-        return view('admin::pages/site/login');
+        return view('admin::pages.auth.login');
     }
 
     /**

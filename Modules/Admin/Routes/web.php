@@ -12,17 +12,24 @@
 */
 
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
+use Modules\Admin\Http\Controllers\Auth\RegisteredUserController;
 
 Route::middleware('guest.admin')->group(function () {
-    Route::get('/login', [AuthenticatedSessionController::class, 'loginPage'])->name('admin/login');
-    Route::post('/login', [AuthenticatedSessionController::class, 'doLogin'])->name('admin/doLogin');
+    Route::get('login', [AuthenticatedSessionController::class, 'loginPage'])->name('admin/login');
+    Route::post('login', [AuthenticatedSessionController::class, 'doLogin'])->name('admin/doLogin');
+
+    Route::get('register', [RegisteredUserController::class, 'create'])
+        ->name('admin/register');
+
+    Route::post('register', [RegisteredUserController::class, 'store'])
+        ->name('admin/doRegister');
 });
 
 
 
 Route::middleware('auth.admin')->group(function () {
     Route::get('/', function () {
-        return view('admin::dashboard');
+        return view('admin::pages.site.admin.dashboard');
     })->name('admin/dashboard');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'logout'])
