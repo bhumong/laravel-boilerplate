@@ -26,7 +26,7 @@ class AuthenticatedSessionController extends Controller
      * Show the form for creating a new resource.
      * @return Renderable
      */
-    public function doLogin(LoginRequest $request)
+    public function login(LoginRequest $request)
     {
         $request->authenticate();
 
