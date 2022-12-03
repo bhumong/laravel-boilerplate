@@ -8,15 +8,10 @@ window._ = _;
  */
 
 import axios from 'axios';
-import $ from 'jquery';
-import DataTables from 'datatables.net';
 
 window.axios = axios;
 
 window.axios.defaults.headers.common['X-Requested-With'] = 'XMLHttpRequest';
-
-window.$ = $;
-window.dt = new DataTables();
 
 /**
  * Echo exposes an expressive API for subscribing to channels and listening
