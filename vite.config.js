@@ -22,6 +22,8 @@ export default defineConfig({
             '~admin-lte': path.resolve(__dirname, 'node_modules/admin-lte'),
             '~bootstrap-icons': path.resolve(__dirname, 'node_modules/bootstrap-icons'),
             '~icheck-bootstrap': path.resolve(__dirname, 'node_modules/icheck-bootstrap'),
+            '~datatables.net-dt': path.resolve(__dirname, 'node_modules/datatables.net-dt'),
+            '~datatables.net-bs4': path.resolve(__dirname, 'node_modules/datatables.net-bs4'),
         }
     }
 });
