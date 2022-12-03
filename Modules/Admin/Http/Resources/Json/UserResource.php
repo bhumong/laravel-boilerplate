@@ -22,7 +22,7 @@ class UserResource extends JsonResource
             'name' => e($this->resource->name),
             'email' => $this->resource->email,
             'role' => $this->resource->role->title ?? '-',
-            'view' => '<a href="#" class="invoice-action-view mr-4">
+            'action' => '<a href="#" class="btn btn-primary btn-sm">
                            View
                         </a>'
         ];

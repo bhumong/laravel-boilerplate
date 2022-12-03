@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Http\Resources;
+namespace App\Http\Resources\Collection;
 
 use App\Utilities\DT\DataTable;
 use App\Utilities\Interface\DataTableSourceInterface;

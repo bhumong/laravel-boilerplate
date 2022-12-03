@@ -5,7 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
-use Modules\Admin\Http\Resources\DataTableResourceCollection;
+use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\UserResource;
 use Modules\Admin\Repositories\UserRepository;
 

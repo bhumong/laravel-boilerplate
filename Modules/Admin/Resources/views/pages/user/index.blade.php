@@ -23,7 +23,7 @@
                         <th data-data="name">Name</th>
                         <th data-data="email">Email</th>
                         <th data-data="role">Role</th>
-                        <th data-data="view" data-orderable="false">View</th>
+                        <th data-data="action" data-orderable="false">Action</th>
                     </tr>
                 </thead>
                 <tbody>
