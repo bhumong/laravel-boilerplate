@@ -47,8 +47,8 @@ class SideBar extends Component
                 'items' => collect([
                     new SidenavData([
                         'name' => 'User',
-                        'isActive' => url()->current() === route('admin/dashboard'),
-                        'href' => route('admin/dashboard'),
+                        'isActive' => url()->current() === route('admin/users/indexPage'),
+                        'href' => route('admin/users/indexPage'),
                         'icon' => 'bi bi-person-circle'
                     ]),
                 ])->toArray(),

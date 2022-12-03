@@ -193,7 +193,7 @@
         </aside>
         <!-- /.control-sidebar -->
     </div>
-    @vite(['resources/js/app.js', 'Modules/Admin/Resources/assets/js/app.js'])
+    @vite(['resources/js/app.js', 'Modules/Admin/Resources/assets/js/app.js', 'Modules/Admin/Resources/assets/js/dataTables.bootstrap4.min.js'])
     @yield('page_vendor_js')
     @yield('page_level_js')
     <!-- ./wrapper -->

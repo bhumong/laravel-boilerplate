@@ -14,6 +14,7 @@
 use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
 use Modules\Admin\Http\Controllers\Auth\RegisteredUserController;
+use Modules\Admin\Http\Controllers\UserController;
 
 Route::middleware('guest.admin')->group(function () {
     Route::get('login', [AuthenticatedSessionController::class, 'loginPage'])->name('admin/login');
@@ -33,4 +34,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::post('logout', [AuthenticatedSessionController::class, 'logout'])
         ->name('admin/logout');
+
+    Route::get('users', [UserController::class, 'index'])->name('admin/users/indexPage');
+    Route::get('users-data', [UserController::class, 'indexData'])->name('admin/users/index');
 });

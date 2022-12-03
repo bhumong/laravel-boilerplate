@@ -20,7 +20,7 @@ class RegisteredUserController extends Controller
      */
     public function registerPage()
     {
-        return view('admin::pages.auth.register');
+        return view('admin::pages/auth/register');
     }
 
     /**

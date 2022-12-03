@@ -1,7 +1,5 @@
-import jQuery from 'jquery';
-import dt from 'datatables.net';
+import './bootstrap'
 import 'admin-lte/node_modules/bootstrap/dist/js/bootstrap.bundle'
 import 'admin-lte';
-
-window.$ = jQuery;
-window.dt = dt;
+import 'admin-lte/plugins/datatables/jquery.dataTables';
+import 'admin-lte/plugins/datatables-bs4/js/dataTables.bootstrap4';

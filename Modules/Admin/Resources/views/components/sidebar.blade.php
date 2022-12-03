@@ -50,18 +50,15 @@
                         $hasActiveChild = empty($accessibleChildren) ? false : count(array_filter(array_column($accessibleChildren, 'isActive'))) > 0;
                         $upperMenuClassess = [];
                         $aClasses = [];
-                        if($hasActiveChild) {
+                        if ($hasActiveChild || !empty($menu['isActive'])) {
                             $upperMenuClassess[] = 'active';
                         }
-                        if($menu['isActive']) {
-                            $aClasses[] = 'active';
-                        }
                     ?>
-                    @if (!empty($menu['isHeader']))
+                    @if (!empty($menu['isHeader']) && !empty($menu['canAccess']))
                         <li class="nav-header">{{ $menu['name'] }}</li>
                     @else
                         <li class="nav-item">
-                            <a href="#" class="nav-link {{ implode(' ', $upperMenuClassess) }}">
+                            <a href="{{ $menu['href'] }}" class="nav-link {{ implode(' ', $upperMenuClassess) }}">
                                 <i class="nav-icon {{ $menu['icon'] }}"></i>
                                 <p>
                                     {{ $menu['name'] }}
@@ -73,8 +70,13 @@
                             @if (!empty($hasAccessibleChildren))
                                 <ul class="nav nav-treeview">
                                     @foreach ($menu['items'] as $item)
+                                        @if (!empty($item['isActive']))
+                                            @php
+                                                $aClasses[] = 'active'
+                                            @endphp
+                                        @endif
                                         <li class="nav-item">
-                                            <a href="{{ $item['href'] }}" class="nav-link {{ implode(' ', $upperMenuClassess) }}">
+                                            <a href="{{ $item['href'] }}" class="nav-link {{ implode(' ', $aClasses) }}">
                                                 <i class="{{ $item['icon'] }} nav-icon"></i>
                                                 <p>{{ $item['name'] }}</p>
                                             </a>

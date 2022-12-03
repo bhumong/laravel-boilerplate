@@ -1,3 +1,5 @@
+@section('title', 'Dashboard')
+
 <x-admin::app-layout>
     <x-admin::breadcrumbs>
         <x-slot:title>

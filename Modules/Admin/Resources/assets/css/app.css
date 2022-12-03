@@ -1,2 +1,3 @@
 @import "~admin-lte/dist/css/adminlte.min.css";
 @import "~bootstrap-icons/font/bootstrap-icons.css";
+@import "~admin-lte/plugins/datatables-bs4/css/dataTables.bootstrap4";

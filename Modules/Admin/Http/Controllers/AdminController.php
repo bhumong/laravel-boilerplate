@@ -13,6 +13,6 @@ class AdminController extends Controller
      */
     public function indexPage()
     {
-        return view('admin::pages.site.admin.dashboard');
+        return view('admin::pages/site/dashboard');
     }
 }
