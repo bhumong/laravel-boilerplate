@@ -5,6 +5,7 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Contracts\Support\Renderable;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
+use Modules\Admin\Entities\User;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\UserResource;
 use Modules\Admin\Repositories\UserRepository;
@@ -26,32 +27,15 @@ class UserController extends Controller
     }
 
     /**
-     * Show the form for creating a new resource.
-     * @return Renderable
-     */
-    public function create()
-    {
-        return view('admin::create');
-    }
-
-    /**
-     * Store a newly created resource in storage.
-     * @param Request $request
-     * @return Renderable
-     */
-    public function store(Request $request)
-    {
-        //
-    }
-
-    /**
      * Show the specified resource.
      * @param int $id
      * @return Renderable
      */
-    public function show($id)
+    public function show(User $user)
     {
-        return view('admin::show');
+        return view('admin::pages/user/detail', [
+            'user' => $user
+        ]);
     }
 
     /**

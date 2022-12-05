@@ -9,10 +9,10 @@
         @isset($isTool)
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
-                    <i class="bi bi-dash"></i>
+                    <i class="bi bi bi-dash-lg text-warning"></i>
                 </button>
                 <button type="button" class="btn btn-tool" data-card-widget="remove" title="Remove">
-                    <i class="bi bi-x"></i>
+                    <i class="bi bi-x-lg text-danger"></i>
                 </button>
             </div>
         @endisset

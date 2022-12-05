@@ -30,11 +30,12 @@ Route::middleware('guest.admin')->group(function () {
 
 
 Route::middleware('auth.admin')->group(function () {
-    Route::get('/', [AdminController::class, 'indexPage'])->name('admin/dashboard');
+    Route::get('/', [AdminController::class, 'index'])->name('admin/dashboard');
 
     Route::post('logout', [AuthenticatedSessionController::class, 'logout'])
         ->name('admin/logout');
 
-    Route::get('users', [UserController::class, 'index'])->name('admin/users/indexPage');
-    Route::get('users-data', [UserController::class, 'indexData'])->name('admin/users/index');
+    Route::get('users', [UserController::class, 'index'])->name('admin/users/index');
+    Route::get('users-data', [UserController::class, 'indexData'])->name('admin/users/indexData');
+    Route::get('users/{user}', [UserController::class, 'show'])->name('admin/users/detail');
 });

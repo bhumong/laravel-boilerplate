@@ -11,7 +11,7 @@ class AdminController extends Controller
      * Display a listing of the resource.
      * @return Renderable
      */
-    public function indexPage()
+    public function index()
     {
         return view('admin::pages/site/dashboard');
     }

@@ -7,7 +7,7 @@
             'label' => 'Home',
         ],
         [
-            'label' => 'Users',
+            'label' => 'User List',
             'active' => true,
         ],
     ]">
@@ -38,7 +38,7 @@ $(document).ready(function () {
     var $usersTable = $("#user-list-datatable").DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('admin/users/index') }}",
+        ajax: "{{ route('admin/users/indexData') }}",
         lengthMenu: [20, 50, 100],
     });
 
