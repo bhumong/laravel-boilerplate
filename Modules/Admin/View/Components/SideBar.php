@@ -2,8 +2,8 @@
 
 namespace Modules\Admin\View\Components;
 
-use App\Utilities\Sidenav as SidenavData;
 use Illuminate\View\Component;
+use Modules\Admin\Utilities\Singleton\SideBar as SingletonSideBar;
 
 class SideBar extends Component
 {
@@ -13,8 +13,9 @@ class SideBar extends Component
      *
      * @return void
      */
-    public function __construct()
+    public function __construct(SingletonSideBar $sideBar)
     {
+        $this->menus = $sideBar->toArray();
     }
 
     /**
@@ -24,35 +25,6 @@ class SideBar extends Component
      */
     public function render()
     {
-        $this->menus = $this->generateMenus();
         return view('admin::components.sidebar');
-    }
-
-    public function generateMenus()
-    {
-        return collect([
-            new SidenavData([
-                'name' => 'Menu',
-                'isHeader' => true,
-            ]),
-            new SidenavData([
-                'name' => 'Dashboard',
-                'isActive' => url()->current() === route('admin/dashboard'),
-                'href' => route('admin/dashboard'),
-                'icon' => 'bi bi-layout-sidebar-inset'
-            ]),
-            new SidenavData([
-                'name' => 'User Management',
-                'icon' => 'bi bi-people',
-                'items' => collect([
-                    new SidenavData([
-                        'name' => 'User',
-                        'isActive' => url()->current() === route('admin/users/index'),
-                        'href' => route('admin/users/index'),
-                        'icon' => 'bi bi-person-circle'
-                    ]),
-                ])->toArray(),
-            ]),
-        ])->toArray();
     }
 }

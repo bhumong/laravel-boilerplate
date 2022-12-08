@@ -4,7 +4,7 @@ namespace Modules\Admin\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
-use Modules\Admin\View\Components\AppLayout;
+use Modules\Admin\Utilities\Singleton\SideBar;
 
 class AdminServiceProvider extends ServiceProvider
 {
@@ -39,6 +39,9 @@ class AdminServiceProvider extends ServiceProvider
     public function register()
     {
         $this->app->register(RouteServiceProvider::class);
+        $this->app->singleton(SideBar::class, function () {
+            return new SideBar();
+        });
     }
 
     /**

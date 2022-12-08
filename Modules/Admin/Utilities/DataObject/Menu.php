@@ -1,10 +1,10 @@
 <?php
 
-namespace App\Utilities;
+namespace Modules\Admin\Utilities\DataObject;
 
 use App\Utilities\DataStructure;
 
-class Sidenav extends DataStructure
+class Menu extends DataStructure
 {
     /** @var string */
     public $name;
@@ -18,7 +18,7 @@ class Sidenav extends DataStructure
     /** @var string */
     public $icon = "";
 
-    /** @var Sidenavp[]|null */
+    /** @var Menu[]|null */
     public $items = null;
 
     /** @var bool */
