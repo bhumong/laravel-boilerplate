@@ -23,8 +23,7 @@ class SideBar implements Arrayable
 
     public function init()
     {
-        $this->sideNav = Cache::remember('sidebar', 6000, function () {
-            return collect([
+        $this->sideNav = collect([
                 new Menu([
                     'name' => 'Menu',
                     'isHeader' => true,
@@ -48,6 +47,5 @@ class SideBar implements Arrayable
                     ]),
                 ]),
             ])->toArray();
-        });
     }
 }
