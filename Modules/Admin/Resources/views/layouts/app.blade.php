@@ -13,7 +13,6 @@
 
     <!-- Scripts -->
     @vite(['resources/css/app.css', 'Modules/Admin/Resources/assets/css/app.css'])
-    @yield('page_vendor_css')
     @yield('page_level_css')
 </head>
 
@@ -194,7 +193,6 @@
         <!-- /.control-sidebar -->
     </div>
     @vite(['resources/js/app.js', 'Modules/Admin/Resources/assets/js/app.js', 'Modules/Admin/Resources/assets/js/dataTables.bootstrap4.min.js'])
-    @yield('page_vendor_js')
     @yield('page_level_js')
     <!-- ./wrapper -->
 </body>

@@ -9,6 +9,8 @@
 
 <div class="form-group">
     <label for="{{ $name }}">{{ $label }}</label>
-    <input type="{{ $type }}" class="form-control" id="" placeholder="{{ $placeholder ?? $name ?? '' }}" value="{{ $value }}">
+    <input type="{{ $type }}" class="form-control" id="{{$name}}" 
+        placeholder="{{ $placeholder ?? $name ?? '' }}" value="{{ $value }}" name="{{$name}}"
+    >
     <x-admin::form.input-error :message="$errors->first($name)"/>
 </div>

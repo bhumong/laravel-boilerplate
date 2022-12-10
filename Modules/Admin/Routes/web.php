@@ -14,6 +14,7 @@
 use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
 use Modules\Admin\Http\Controllers\Auth\RegisteredUserController;
+use Modules\Admin\Http\Controllers\RoleController;
 use Modules\Admin\Http\Controllers\UserController;
 
 Route::middleware('guest.admin')->group(function () {
@@ -37,5 +38,8 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('users', [UserController::class, 'index'])->name('admin/users/index');
     Route::get('users-data', [UserController::class, 'indexData'])->name('admin/users/indexData');
-    Route::get('users/{user}', [UserController::class, 'show'])->name('admin/users/detail');
+    Route::get('users/{user}', [UserController::class, 'edit'])->name('admin/users/edit');
+    Route::put('users/{user}', [UserController::class, 'update'])->name('admin/users/update');
+
+    Route::get('roles/search', [RoleController::class, 'search'])->name('admin/roles/search');
 });

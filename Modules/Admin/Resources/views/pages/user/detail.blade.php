@@ -1,5 +1,9 @@
 @section('title', 'User')
 
+@section('page_level_js')
+    <x-admin::script.autocomplete />
+@endsection
+
 <x-admin::app-layout>
     <x-admin::breadcrumbs :items="[
         [
@@ -20,42 +24,47 @@
         </x-slot>
     </x-admin::breadcrumbs>
     <x-admin::card :isTool="true">
-        <form action="" method="POST">
+        <form action="{{route('admin/users/update', ['user' => $user->id])}}" method="POST">
+            @method("PUT")
             @csrf
             <x-admin::form.input-text
                 :name="'email'"
                 :label="'Email'"
-                :placeholder="'Email'"
+                :placeholder="''"
                 :value="$user->email"
             />
+            <x-admin::form.input-text
+                :name="'name'"
+                :label="'Name'"
+                :placeholder="''"
+                :value="$user->name"
+            />
+            <x-admin::form.input-select2 
+                :name="'role_id'"
+                :label="'Role'"
+                :value="$user->role_id"
+                :class="'select2-role'"
+            >
+            @if ($user->role)
+                <option value="{{$user->role_id}}" selected="selected">{{$user->role->title}}</option>
+            @endif
+            </x-admin::form.input-select2>
             <x-admin::form.input-checkbox
-                :name="'isSuperadmin'"
+                :name="'is_superuser'"
                 :data="[
                     [
-                        'value' => 'true',
-                        'id' => 'isSuperadmin',
-                        'label' => 'Superadmin',
+                        'value' => '1',
+                        'id' => 'is_superuser',
+                        'label' => 'Superuser',
                         'isChecked' => $user->is_superuser
                     ]
                 ]"
             />
-            <div class="form-group">
-                <label for="exampleInputFile">File input</label>
-                <div class="input-group">
-                    <div class="custom-file">
-                        <input type="file" class="custom-file-input" id="exampleInputFile">
-                        <label class="custom-file-label" for="exampleInputFile">Choose file</label>
-                    </div>
-                    <div class="input-group-append">
-                        <span class="input-group-text">Upload</span>
-                    </div>
-                </div>
-            </div>
-            <div class="form-check">
-                <input type="checkbox" class="form-check-input" id="exampleCheck1">
-                <label class="form-check-label" for="exampleCheck1">Check me out</label>
+            <div class="text-right">
+                <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
 
     </x-admin::card>
 </x-admin::app-layout>
+

@@ -80,7 +80,11 @@ class UserRepository implements DataTableSourceInterface
 
     public function update(User $user, array $data)
     {
-        $user->update($data);
+        $data = collect($data)->only([
+            'name', 'email', 'is_superuser', 'role_id'
+        ])->toArray();
+        $user->updateOrFail($data);
+        return $user;
     }
 
     public function autocomplete(string $search = '')
