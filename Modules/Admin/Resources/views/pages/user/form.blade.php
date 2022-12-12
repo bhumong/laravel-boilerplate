@@ -20,25 +20,47 @@
         ],
     ]">
         <x-slot:title>
-            Users Detail
+            @if ($user->exists)
+                Edit User
+            @else
+                Create User
+            @endif
         </x-slot>
     </x-admin::breadcrumbs>
     <x-admin::card :isTool="true">
+        @if ($user->exists)
         <form action="{{route('admin/users/update', ['user' => $user->id])}}" method="POST">
             @method("PUT")
+        @else
+        <form action="{{route('admin/users/store')}}" method="POST">
+            @method("POST")
+        @endif
             @csrf
             <x-admin::form.input-text
                 :name="'email'"
                 :label="'Email'"
                 :placeholder="''"
-                :value="$user->email"
+                :value="$user->email ?? old('email')"
             />
             <x-admin::form.input-text
                 :name="'name'"
                 :label="'Name'"
                 :placeholder="''"
-                :value="$user->name"
+                :value="$user->name ?? old('name')"
             />
+            <x-admin::form.input-text
+                :name="'password'"
+                :label="'Password'"
+                :placeholder="''"
+                :type="'password'"
+            />
+            <x-admin::form.input-text
+                :name="'password_confirmation'"
+                :label="'Password Confirmation'"
+                :placeholder="''"
+                :type="'password'"
+            />
+            
             <x-admin::form.input-select2 
                 :name="'role_id'"
                 :label="'Role'"
@@ -56,7 +78,7 @@
                         'value' => '1',
                         'id' => 'is_superuser',
                         'label' => 'Superuser',
-                        'isChecked' => $user->is_superuser
+                        'isChecked' => $user->is_superuser ?? old('is_superuser')
                     ]
                 ]"
             />

@@ -11,7 +11,7 @@ class RoleController extends Controller
 
     public function search(Request $request, RoleRepository $roleRepository) 
     {
-        $search = $request->input('search');
+        $search = $request->input('search', '');
         return [
             'results' => $roleRepository->autocomplete($search)
         ];

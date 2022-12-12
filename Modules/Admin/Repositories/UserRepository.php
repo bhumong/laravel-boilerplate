@@ -5,6 +5,7 @@ namespace Modules\Admin\Repositories;
 use App\Utilities\DT\DataTable;
 use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
+use Hash;
 use Illuminate\Support\Collection;
 use Illuminate\Support\Facades\DB;
 use Modules\Admin\Entities\User;
@@ -81,11 +82,24 @@ class UserRepository implements DataTableSourceInterface
     public function update(User $user, array $data)
     {
         $data = collect($data)->only([
-            'name', 'email', 'is_superuser', 'role_id'
+            'name', 'email', 'is_superuser', 'role_id', 'password'
         ])->toArray();
+        $this->setPassword($data);
         $user->updateOrFail($data);
         return $user;
     }
+
+    public function insert(array $data)
+    {
+        $data = collect($data)->only([
+            'name', 'email', 'is_superuser', 'role_id', 'password'
+        ])->toArray();
+        $this->setPassword($data);
+        $user = new User($data);
+        $user->saveOrFail();
+        return $user;
+    }
+
 
     public function autocomplete(string $search = '')
     {
@@ -106,5 +120,19 @@ class UserRepository implements DataTableSourceInterface
         $users = $users
             ->pluck('id', 'combine');
         return $users;
+    }
+
+    public function detete(User $user)
+    {
+        $user->deleteOrFail();
+    }
+
+    private function setPassword(&$data) 
+    {
+        if (!empty($data['password'])) {
+            $data['password'] = Hash::make($data['password']);
+        } else {
+            unset($data['password']);
+        }
     }
 }

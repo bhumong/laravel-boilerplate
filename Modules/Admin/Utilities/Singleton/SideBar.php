@@ -2,14 +2,12 @@
 
 namespace Modules\Admin\Utilities\Singleton;
 
-use Cache;
 use Illuminate\Contracts\Support\Arrayable;
-use Illuminate\Support\Facades\Redis;
 use Modules\Admin\Utilities\DataObject\Menu;
 
 class SideBar implements Arrayable
 {
-    protected $sideNav = null;
+    protected $sideNav = [];
 
     public function __construct()
     {

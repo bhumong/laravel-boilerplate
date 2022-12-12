@@ -7,7 +7,7 @@
 
 <div class="form-group">
     <label for="{{ $name }}">{{ $label }}</label>
-    <select class="form-control {{$class}}" 
+    <select class="form-control {{$class}} @error($name) is-invalid @enderror" 
         id="{{$name}}"
         value="{{ $value }}"
         name="{{$name}}" 

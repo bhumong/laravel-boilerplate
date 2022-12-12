@@ -2,10 +2,9 @@
 
 namespace Modules\Admin\Http\Controllers;
 
-use Illuminate\Contracts\Support\Renderable;
-use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\User;
+use Modules\Admin\Http\Requests\UserCreateRequest;
 use Modules\Admin\Http\Requests\UserUpdateRequest;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\UserResource;
@@ -23,9 +22,24 @@ class UserController extends Controller
         return new DataTableResourceCollection($userRepository, UserResource::class);
     }
 
+    public function create()
+    {
+        $user = new User();
+        return view('admin::pages/user/form', [
+            'user' => $user
+        ]);
+    }
+
+    public function store(UserCreateRequest $request, UserRepository $userRepository)
+    {
+        $insertData = $request->all();
+        $userRepository->insert($insertData);
+        return redirect()->route('admin/users/index');
+    }
+
     public function edit(User $user)
     {
-        return view('admin::pages/user/detail', [
+        return view('admin::pages/user/form', [
             'user' => $user
         ]);
     }
@@ -37,13 +51,8 @@ class UserController extends Controller
         return redirect()->route('admin/users/index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     * @param int $id
-     * @return Renderable
-     */
-    public function destroy($id)
+    public function destroy(User $user, UserRepository $userRepository)
     {
-        //
+        $userRepository->detete($user);
     }
 }

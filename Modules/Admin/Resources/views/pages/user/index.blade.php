@@ -42,6 +42,10 @@ $(document).ready(function () {
         </x-slot>
     </x-admin::breadcrumbs>
     <x-admin::card>
+        <div class="text-right">
+            <a href="{{route('admin/users/create')}}" target="_blank" class="btn btn-primary text-right">Create User</a>
+        </div>
+        <br>
         <div class="responsive-table">
             <table id="user-list-datatable" class="table table-striped">
                 <thead>

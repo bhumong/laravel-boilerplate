@@ -2,6 +2,8 @@
     //Initialize Select2 Elements
     $('.select2-role').select2({
         theme: 'bootstrap4',
+        allowClear: true,
+        placeholder: "-",
         ajax: {
             delay: 250,
             url: "{{route('admin/roles/search')}}",

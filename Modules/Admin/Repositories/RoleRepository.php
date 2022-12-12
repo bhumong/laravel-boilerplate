@@ -7,10 +7,12 @@ use Modules\Admin\Entities\Role;
 
 class RoleRepository
 {
-    public function autocomplete(string $name)
+    public function autocomplete(string $name = '')
     {
         $query = Role::query()->select('title', 'id');
-        QueryHelper::searchColumns($query, ['title'], QueryHelper::tokenizeKeywords($name));
+        if ($name) {
+            QueryHelper::searchColumns($query, ['title'], QueryHelper::tokenizeKeywords($name));
+        }
         $query->where('is_active', true)
             ->limit(10);
 

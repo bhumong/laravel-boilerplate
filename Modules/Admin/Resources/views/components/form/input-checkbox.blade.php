@@ -20,7 +20,7 @@
         <label>{{ $label }}</label>
     @endif
     @foreach ($data as $checkbox)
-        <div class="form-check {{$divClass}}">
+        <div class="form-check {{$divClass}} @error($name) is-invalid @enderror">
             <input class="form-check-input" 
                 type="checkbox" 
                 id="{{$checkbox['id']}}" 

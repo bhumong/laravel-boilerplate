@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 use Modules\Admin\Entities\Role;
 use Illuminate\Validation\Rules;
 
-class UserUpdateRequest extends FormRequest
+class UserCreateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +27,11 @@ class UserUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['string', 'email', 'required'],
-            'name' => ['string', 'regex:/^[\pL\s\-]+$/u', 'required'],
+            'email' => ['required', 'string', 'email', ],
+            'name' => ['required', 'string', 'regex:/^[\pL\s\-]+$/u'],
             'role' => ['string', 'nullable', Rule::exists(Role::class, 'id')],
             'isSuperadmin' => ['nullable', 'boolean'],
-            'password' => ['nullable', 'confirmed', Rules\Password::defaults()],
+            'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }
 }
