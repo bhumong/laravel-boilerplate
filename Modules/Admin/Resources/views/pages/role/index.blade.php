@@ -1,12 +1,12 @@
-@section('title', 'User')
+@section('title', 'Role')
 
 @section('page_level_js')
 <script type="module">
 $(document).ready(function () {
-    var $usersTable = $("#user-list-datatable").DataTable({
+    var $roleTable = $("#role-list-datatable").DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('admin/users/indexData') }}",
+        ajax: "{{ route('admin/roles/indexData') }}",
         lengthMenu: [20, 50, 100],
     });
 
@@ -15,7 +15,7 @@ $(document).ready(function () {
             role: $("#user-list-role").val(),
         };
         // from admin::partials.dataTableHelper
-        filterDataTable($usersTable, filter);
+        filterDataTable($roleTable, filter);
     });
 
     $('#user-list-reset').on('click', function() {
@@ -38,21 +38,21 @@ $(document).ready(function () {
         ],
     ]">
         <x-slot:title>
-            Users
+            Roles
         </x-slot>
     </x-admin::breadcrumbs>
     <x-admin::card>
         <div class="text-right">
-            <a href="{{route('admin/roles/create')}}" target="_blank" class="btn btn-primary text-right">Create User</a>
+            <a href="{{route('admin/users/create')}}" target="_blank" class="btn btn-primary text-right">Create Role</a>
         </div>
         <br>
         <div class="responsive-table">
-            <table id="user-list-datatable" class="table table-striped">
+            <table id="role-list-datatable" class="table table-striped">
                 <thead>
                     <tr>
-                        <th data-data="name">Name</th>
-                        <th data-data="email">Email</th>
-                        <th data-data="role" data-orderable="false">Role</th>
+                        <th data-data="title">Title</th>
+                        <th data-data="is_active">Status</th>
+                        <th data-data="created_at">Created At</th>
                         <th data-data="action" data-orderable="false">Action</th>
                     </tr>
                 </thead>

@@ -44,5 +44,11 @@ Route::middleware('auth.admin')->group(function () {
     Route::put('users/{user}', [UserController::class, 'update'])->name('admin/users/update');
     Route::delete('users/{user}', [UserController::class, 'destroy'])->name('admin/users/destroy');
 
+    Route::get('roles', [RoleController::class, 'index'])->name('admin/roles/index');
+    Route::get('roles/create', [RoleController::class, 'create'])->name('admin/roles/create');
+    Route::post('roles', [RoleController::class, 'store'])->name('admin/roles/store');
     Route::get('roles/search', [RoleController::class, 'search'])->name('admin/roles/search');
+    Route::get('roles-data', [RoleController::class, 'indexData'])->name('admin/roles/indexData');
+    Route::get('roles/{role}', [RoleController::class, 'edit'])->name('admin/roles/edit');
+    Route::put('roles/{role}', [RoleController::class, 'update'])->name('admin/roles/update');
 });

@@ -7,7 +7,7 @@ use Illuminate\Validation\Rule;
 use Modules\Admin\Entities\Role;
 use Illuminate\Validation\Rules;
 
-class UserCreateRequest extends FormRequest
+class RoleUpdateRequest extends FormRequest
 {
     /**
      * Determine if the user is authorized to make this request.
@@ -27,11 +27,9 @@ class UserCreateRequest extends FormRequest
     public function rules()
     {
         return [
-            'email' => ['required', 'string', 'email', ],
-            'name' => ['required', 'string', 'regex:/^[\pL\s\-]+$/u'],
-            'role' => ['string', 'nullable', Rule::exists(Role::class, 'id')],
-            'is_superuser' => ['nullable', 'boolean'],
-            'password' => ['required', 'confirmed', Rules\Password::defaults()],
+            'title' => ['required', 'string'],
+            'description' => ['required', 'string', 'min:5'],
+            'is_active' => ['nullable', 'boolean'],
         ];
     }
 }

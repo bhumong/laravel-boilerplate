@@ -84,6 +84,7 @@ class UserRepository implements DataTableSourceInterface
         $data = collect($data)->only([
             'name', 'email', 'is_superuser', 'role_id', 'password'
         ])->toArray();
+        $data['updated_at'] = now();
         $this->setPassword($data);
         $user->updateOrFail($data);
         return $user;
@@ -92,8 +93,9 @@ class UserRepository implements DataTableSourceInterface
     public function insert(array $data)
     {
         $data = collect($data)->only([
-            'name', 'email', 'is_superuser', 'role_id', 'password'
+            'name', 'email', 'is_superuser', 'role_id', 'password', 'created_at'
         ])->toArray();
+        $data['created_at'] = now();
         $this->setPassword($data);
         $user = new User($data);
         $user->saveOrFail();
@@ -117,9 +119,8 @@ class UserRepository implements DataTableSourceInterface
         $users = $query->limit(10)
             ->get();
 
-        $users = $users
+        return $users
             ->pluck('id', 'combine');
-        return $users;
     }
 
     public function detete(User $user)
@@ -127,7 +128,7 @@ class UserRepository implements DataTableSourceInterface
         $user->deleteOrFail();
     }
 
-    private function setPassword(&$data) 
+    private function setPassword(&$data)
     {
         if (!empty($data['password'])) {
             $data['password'] = Hash::make($data['password']);

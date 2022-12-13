@@ -60,8 +60,8 @@
                 :placeholder="''"
                 :type="'password'"
             />
-            
-            <x-admin::form.input-select2 
+
+            <x-admin::form.input-select2
                 :name="'role_id'"
                 :label="'Role'"
                 :value="$user->role_id"
@@ -73,6 +73,7 @@
             </x-admin::form.input-select2>
             <x-admin::form.input-checkbox
                 :name="'is_superuser'"
+                :defaultValue="'0'"
                 :data="[
                     [
                         'value' => '1',

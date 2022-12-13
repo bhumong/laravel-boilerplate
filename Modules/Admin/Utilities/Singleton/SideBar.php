@@ -42,6 +42,12 @@ class SideBar implements Arrayable
                             'href' => route('admin/users/index'),
                             'icon' => 'bi bi-person-circle'
                         ]),
+                        new Menu([
+                            'name' => 'Roles',
+                            'isActive' => url()->current() === route('admin/roles/index'),
+                            'href' => route('admin/roles/index'),
+                            'icon' => 'bi bi-people'
+                        ]),
                     ]),
                 ]),
             ])->toArray();
