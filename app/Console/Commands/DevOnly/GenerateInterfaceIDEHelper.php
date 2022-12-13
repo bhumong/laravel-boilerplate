@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\DevOnly;
+namespace App\Console\Commands\DevOnly;
 
 use Mockery\Generator\Method;
 use Illuminate\Console\Command;

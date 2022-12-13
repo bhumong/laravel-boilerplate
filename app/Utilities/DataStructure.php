@@ -34,7 +34,7 @@ abstract class DataStructure implements Arrayable, Jsonable, JsonSerializable
     public function toArray()
     {
         return array_map(function ($value) {
-            return $value instanceof self ? $value->toArray() : $value;
+            return $value instanceof Arrayable ? $value->toArray() : $value;
         }, get_object_vars($this));
     }
 

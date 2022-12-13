@@ -1,6 +1,6 @@
 <?php
 
-namespace App\Console\DevOnly;
+namespace App\Console\Commands\DevOnly;
 
 use Barryvdh\LaravelIdeHelper\Console\ModelsCommand as BaseModelsCommand;
 use Illuminate\Support\Arr;

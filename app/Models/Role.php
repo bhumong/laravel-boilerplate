@@ -10,6 +10,13 @@ class Role extends Model
 {
     use HasFactory, AutoGenerateUuid;
 
+    protected $table = 'roles';
+    protected $primaryKey = 'id';
+    protected $guarded = [];
+    protected $casts = [
+        'is_active' => 'boolean',
+    ];
+
     public function permissions()
     {
         return $this->belongsToMany(Permission::class, 'role_permission');

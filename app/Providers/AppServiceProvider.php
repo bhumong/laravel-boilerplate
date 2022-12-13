@@ -2,8 +2,9 @@
 
 namespace App\Providers;
 
-use App\Console\DevOnly\GenerateInterfaceIDEHelper;
-use App\Console\DevOnly\ModelsCommand;
+use App\Console\Commands\DevOnly\GenerateInterfaceIDEHelper;
+use App\Console\Commands\DevOnly\ModelsCommand;
+use App\Console\Commands\DevOnly\ModuleRepositoryMakeCommand;
 use Illuminate\Support\ServiceProvider;
 
 class AppServiceProvider extends ServiceProvider
@@ -41,6 +42,7 @@ class AppServiceProvider extends ServiceProvider
             $this->commands([
                 GenerateInterfaceIDEHelper::class,
                 ModelsCommand::class,
+                ModuleRepositoryMakeCommand::class,
             ]);
         }
     }
