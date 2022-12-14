@@ -74,11 +74,6 @@ class UserRepository implements DataTableSourceInterface
         return $userQuery;
     }
 
-    public function create(array $data)
-    {
-        return User::create($data);
-    }
-
     public function update(User $user, array $data)
     {
         $data = collect($data)->only([
@@ -90,7 +85,7 @@ class UserRepository implements DataTableSourceInterface
         return $user;
     }
 
-    public function insert(array $data)
+    public function create(array $data)
     {
         $data = collect($data)->only([
             'name', 'email', 'is_superuser', 'role_id', 'password', 'created_at'
@@ -123,7 +118,7 @@ class UserRepository implements DataTableSourceInterface
             ->pluck('id', 'combine');
     }
 
-    public function detete(User $user)
+    public function delete(User $user)
     {
         $user->deleteOrFail();
     }

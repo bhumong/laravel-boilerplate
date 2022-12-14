@@ -2,6 +2,7 @@
 
 namespace Modules\Admin\Http\Controllers;
 
+use App\Exceptions\ApiException;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\User;
 use Modules\Admin\Http\Requests\UserCreateRequest;
@@ -9,6 +10,7 @@ use Modules\Admin\Http\Requests\UserUpdateRequest;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\UserResource;
 use Modules\Admin\Repositories\UserRepository;
+use Modules\Admin\Utilities\Enum\ErrorTypeEnum;
 
 class UserController extends Controller
 {
@@ -32,8 +34,8 @@ class UserController extends Controller
 
     public function store(UserCreateRequest $request, UserRepository $userRepository)
     {
-        $insertData = $request->all();
-        $userRepository->insert($insertData);
+        $userRepository->create($request->all());
+
         return redirect()->route('admin/users/index');
     }
 
@@ -46,13 +48,20 @@ class UserController extends Controller
 
     public function update(UserUpdateRequest $request, User $user, UserRepository $userRepository)
     {
-        $updateData = $request->all();
-        $userRepository->update($user, $updateData);
+        $userRepository->update($user, $request->all());
+
         return redirect()->route('admin/users/index');
     }
 
     public function destroy(User $user, UserRepository $userRepository)
     {
-        $userRepository->detete($user);
+        $userLogin = auth()->user();
+        if ($userLogin->id == $user->id) {
+            return redirect()
+                ->route('admin/users/edit', ['user' => $user->id])
+                ->withErrors('cannot delete own users', ErrorTypeEnum::flashMessage->name);
+        }
+        $userRepository->delete($user);
+        return redirect()->route('admin/users/index');
     }
 }
