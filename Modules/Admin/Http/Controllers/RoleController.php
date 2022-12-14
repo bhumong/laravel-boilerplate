@@ -5,12 +5,11 @@ namespace Modules\Admin\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Role;
+use Modules\Admin\Http\Requests\RoleCreateRequest;
 use Modules\Admin\Http\Requests\RoleUpdateRequest;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\RoleResource;
-use Modules\Admin\Http\Resources\Json\UserResource;
 use Modules\Admin\Repositories\RoleRepository;
-use Modules\Admin\Repositories\UserRepository;
 
 class RoleController extends Controller
 {
@@ -46,15 +45,10 @@ class RoleController extends Controller
         ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(RoleCreateRequest $request, RoleRepository $roleRepository)
     {
-        //
+        $roleRepository->create($request->all());
+        return redirect()->route('admin/roles/index');
     }
 
     /**
@@ -82,14 +76,9 @@ class RoleController extends Controller
         return redirect()->route('admin/roles/index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Role $role, RoleRepository $roleRepository)
     {
-        //
+        $roleRepository->delete($role);
+        return redirect()->route('admin/roles/index');
     }
 }

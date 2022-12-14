@@ -90,4 +90,29 @@ class RoleRepository implements DataTableSourceInterface
         $role->updateOrFail($data);
         return $role;
     }
+
+    public function create(array $data)
+    {
+        $data = collect($data)->only([
+            'title', 'is_active', 'description'
+        ])->toArray();
+        $role = new Role($data);
+        $role->saveOrFail();
+        return $role;
+    }
+
+    public function delete(Role $role)
+    {
+        $role->deleteOrFail();
+    }
+
+    public function toggleActive(Role $role)
+    {
+        if ($role->is_active) {
+            $role->is_active = 0;
+        } else {
+            $role->is_active = 1;
+        }
+        $role->saveOrFail();
+    }
 }

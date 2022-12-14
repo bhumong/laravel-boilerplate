@@ -75,12 +75,14 @@
                                         @else
                                             @php $aClasses = '' @endphp
                                         @endif
-                                        <li class="nav-item">
-                                            <a href="{{ $item['href'] }}" class="nav-link {{$aClasses}}">
-                                                <i class="{{ $item['icon'] }} nav-icon"></i>
-                                                <p>{{ $item['name'] }}</p>
-                                            </a>
-                                        </li>
+                                        @if ($item['canAccess'])
+                                            <li class="nav-item">
+                                                <a href="{{ $item['href'] }}" class="nav-link {{$aClasses}}">
+                                                    <i class="{{ $item['icon'] }} nav-icon"></i>
+                                                    <p>{{ $item['name'] }}</p>
+                                                </a>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             @endif

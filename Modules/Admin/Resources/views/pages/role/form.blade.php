@@ -61,10 +61,20 @@
                 ]"
             />
             <div class="text-right">
+                @if ($role->exists)
+                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#destroy-modal">Delete</button>
+                @endif
                 <button type="submit" class="btn btn-primary">Save</button>
             </div>
         </form>
-
+        @if ($role->exists)
+        <x-admin::modal-delete 
+            :action="route('admin/roles/destroy', ['role' => $role->id])"
+            :id="'destroy-modal'"
+        >
+            <h4 class="text-center">Are you sure want delete role "{{$role->title}}"?</h4>
+        </x-admin::modal-delete>
+        @endif
     </x-admin::card>
 </x-admin::app-layout>
 

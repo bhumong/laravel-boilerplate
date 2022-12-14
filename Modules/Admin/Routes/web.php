@@ -51,4 +51,5 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('roles-data', [RoleController::class, 'indexData'])->name('admin/roles/indexData');
     Route::get('roles/{role}', [RoleController::class, 'edit'])->name('admin/roles/edit');
     Route::put('roles/{role}', [RoleController::class, 'update'])->name('admin/roles/update');
+    Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('admin/roles/destroy');
 });
