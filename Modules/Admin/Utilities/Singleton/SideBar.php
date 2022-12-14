@@ -40,13 +40,13 @@ class SideBar implements Arrayable
                             'name' => 'User',
                             'isActive' => url()->current() === route('admin/users/index'),
                             'href' => route('admin/users/index'),
-                            'icon' => 'bi bi-person-circle'
+                            'icon' => 'bi bi-person-circle',
                         ]),
                         new Menu([
-                            'name' => 'Roles',
+                            'name' => 'Role',
                             'isActive' => url()->current() === route('admin/roles/index'),
                             'href' => route('admin/roles/index'),
-                            'icon' => 'bi bi-people'
+                            'icon' => 'bi bi-people',
                         ]),
                     ]),
                 ]),
