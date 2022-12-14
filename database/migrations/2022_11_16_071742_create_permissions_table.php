@@ -15,8 +15,7 @@ return new class extends Migration
     {
         Schema::create('permissions', function (Blueprint $table) {
             $table->uuid('id')->primary();
-            $table->string('title');
-            $table->string('value');
+            $table->string('permission');
             $table->tinyText('description')->nullable();
             $table->string('type');
             $table->boolean('is_active');
