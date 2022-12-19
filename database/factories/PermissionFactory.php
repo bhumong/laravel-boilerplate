@@ -21,8 +21,7 @@ class PermissionFactory extends Factory
     {
         return [
             'id' => Str::uuid()->toString(),
-            'title' => Str::random(),
-            'value' => Str::random(),
+            'permission' => Str::random(),
             'description' => Str::random(),
             'type' => PermissionTypeEnum::random(),
             'is_active' => Arr::random([true, false]),
