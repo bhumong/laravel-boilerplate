@@ -14,6 +14,7 @@
 use Modules\Admin\Http\Controllers\AdminController;
 use Modules\Admin\Http\Controllers\Auth\AuthenticatedSessionController;
 use Modules\Admin\Http\Controllers\Auth\RegisteredUserController;
+use Modules\Admin\Http\Controllers\PermissionController;
 use Modules\Admin\Http\Controllers\RoleController;
 use Modules\Admin\Http\Controllers\UserController;
 
@@ -52,4 +53,13 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('roles/{role}', [RoleController::class, 'edit'])->name('admin/roles/edit');
     Route::put('roles/{role}', [RoleController::class, 'update'])->name('admin/roles/update');
     Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('admin/roles/destroy');
+
+    Route::get('permissions', [PermissionController::class, 'index'])->name('admin/permissions/index');
+    Route::get('permissions/create', [PermissionController::class, 'create'])->name('admin/permissions/create');
+    Route::post('permissions', [PermissionController::class, 'store'])->name('admin/permissions/store');
+    Route::get('permissions-data', [PermissionController::class, 'indexData'])->name('admin/permissions/indexData');
+    Route::get('permissions/{permission}', [PermissionController::class, 'edit'])->name('admin/permissions/edit');
+    Route::put('permissions/{permission}', [PermissionController::class, 'update'])->name('admin/permissions/update');
+    Route::delete('permissions/{permission}', [PermissionController::class, 'destroy'])->name('admin/permissions/destroy');
+
 });

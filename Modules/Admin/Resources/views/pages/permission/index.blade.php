@@ -1,26 +1,13 @@
-@section('title', 'Role')
+@section('title', 'Permission')
 
 @section('page_level_js')
 <script type="module">
 $(document).ready(function () {
-    var $roleTable = $("#role-list-datatable").DataTable({
+    const $roleTable = $("#permission-list-datatable").DataTable({
         processing: true,
         serverSide: true,
-        ajax: "{{ route('admin/roles/indexData') }}",
+        ajax: "{{ route('admin/permissions/indexData') }}",
         lengthMenu: [20, 50, 100],
-    });
-
-    $('#user-list-filter').on('click', function() {
-        var filter = {
-            role: $("#user-list-role").val(),
-        };
-        // from admin::partials.dataTableHelper
-        filterDataTable($roleTable, filter);
-    });
-
-    $('#user-list-reset').on('click', function() {
-        $("#user-list-role").val('').formSelect();
-        $('#user-list-filter').click();
     });
 });
 </script>
@@ -33,7 +20,7 @@ $(document).ready(function () {
             'label' => 'Home',
         ],
         [
-            'label' => 'User List',
+            'label' => 'Permission List',
             'active' => true,
         ],
     ]">
@@ -43,14 +30,14 @@ $(document).ready(function () {
     </x-admin::breadcrumbs>
     <x-admin::card>
         <div class="text-right">
-            <a href="{{route('admin/users/create')}}" target="_blank" class="btn btn-primary text-right">Create Role</a>
+            <a href="{{route('admin/permissions/create')}}" class="btn btn-primary text-right">Create Permission</a>
         </div>
         <br>
         <div class="responsive-table">
-            <table id="role-list-datatable" class="table table-striped">
+            <table id="permission-list-datatable" class="table table-striped">
                 <thead>
                     <tr>
-                        <th data-data="title">Title</th>
+                        <th data-data="permission">Permission</th>
                         <th data-data="is_active">Status</th>
                         <th data-data="created_at">Created At</th>
                         <th data-data="action" data-orderable="false">Action</th>

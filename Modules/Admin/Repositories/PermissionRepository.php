@@ -2,12 +2,10 @@
 
 namespace Modules\Admin\Repositories;
 
-use App\Models\Permission;
 use App\Utilities\DT\DataTable;
-use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
+use Modules\Admin\Entities\Permission;
 
 class PermissionRepository implements DataTableSourceInterface
 {
@@ -22,18 +20,11 @@ class PermissionRepository implements DataTableSourceInterface
         return $this->queryFilter($dataTable)->count();
     }
 
-    public function findRecordsFiltered(DataTable $dataTable, int $limit, int $offset): Collection
-    {
-        $query = $this->queryFilter($dataTable);
-        $this->orderBy($query, $dataTable);
-        return $query->limit($limit)->offset($offset)->get();
-    }
-
     private function queryFilter(DataTable $dataTable)
     {
-        $roleQuery = Role::query();
-        $this->filterTitle($roleQuery, $dataTable);
-        return $roleQuery;
+        $permissionQuery = Permission::query();
+        $this->filterPermission($permissionQuery, $dataTable);
+        return $permissionQuery;
     }
 
     /**
@@ -41,12 +32,19 @@ class PermissionRepository implements DataTableSourceInterface
      * @param DataTable $dataTable
      * @return void
      */
-    private function filterTitle($query, DataTable $dataTable)
+    private function filterPermission($query, DataTable $dataTable)
     {
         $search = $dataTable->search->value;
         if ($search) {
-            $query->where('title', 'like', "${search}");
+            $query->where('permission', 'like', "%${search}%");
         }
+    }
+
+    public function findRecordsFiltered(DataTable $dataTable, int $limit, int $offset): Collection
+    {
+        $query = $this->queryFilter($dataTable);
+        $this->orderBy($query, $dataTable);
+        return $query->limit($limit)->offset($offset)->get();
     }
 
     /**
@@ -61,17 +59,34 @@ class PermissionRepository implements DataTableSourceInterface
         $sortColumn = match ($column->data) {
             'is_active' => 'is_active',
             'created_at' => 'created_at',
-            default => 'title',
+            default => 'permission',
         };
         $query->orderBy($sortColumn, $order->dir);
     }
 
-    public function update(Role $role, array $data)
+    public function update(Permission $permission, array $data)
     {
         $data = collect($data)->only([
-            'title', 'is_active', 'description'
+            'permission', 'is_active', 'description'
         ])->toArray();
-        $role->updateOrFail($data);
-        return $role;
+        $data['updated_at'] = now();
+        $permission->updateOrFail($data);
+        return $permission;
+    }
+
+    public function create(array $data)
+    {
+        $data = collect($data)->only([
+            'permission', 'is_active', 'description', 'type'
+        ])->toArray();
+        $data['created_at'] = now();
+        $permission = new Permission($data);
+        $permission->saveOrFail();
+        return $permission;
+    }
+
+    public function delete(Permission $permission)
+    {
+        $permission->deleteOrFail();
     }
 }
