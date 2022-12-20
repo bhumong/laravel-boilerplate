@@ -61,7 +61,7 @@ class RoleRepository implements DataTableSourceInterface
     {
         $search = $dataTable->search->value;
         if ($search) {
-            $query->where('title', 'like', "${search}");
+            $query->where('title', 'like', "%${search}%");
         }
     }
 
@@ -87,6 +87,7 @@ class RoleRepository implements DataTableSourceInterface
         $data = collect($data)->only([
             'title', 'is_active', 'description'
         ])->toArray();
+        $data['updated_at'] = now();
         $role->updateOrFail($data);
         return $role;
     }
@@ -96,6 +97,7 @@ class RoleRepository implements DataTableSourceInterface
         $data = collect($data)->only([
             'title', 'is_active', 'description'
         ])->toArray();
+        $data['created_at'] = now();
         $role = new Role($data);
         $role->saveOrFail();
         return $role;

@@ -9,19 +9,6 @@ $(document).ready(function () {
         ajax: "{{ route('admin/roles/indexData') }}",
         lengthMenu: [20, 50, 100],
     });
-
-    $('#user-list-filter').on('click', function() {
-        var filter = {
-            role: $("#user-list-role").val(),
-        };
-        // from admin::partials.dataTableHelper
-        filterDataTable($roleTable, filter);
-    });
-
-    $('#user-list-reset').on('click', function() {
-        $("#user-list-role").val('').formSelect();
-        $('#user-list-filter').click();
-    });
 });
 </script>
 @endsection
