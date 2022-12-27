@@ -51,15 +51,11 @@ class RoleController extends Controller
         return redirect()->route('admin/roles/index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        return view('admin::pages/role/detail', [
+            'role' => $role
+        ]);
     }
 
     public function edit(Role $role)

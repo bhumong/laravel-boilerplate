@@ -50,7 +50,8 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('roles', [RoleController::class, 'store'])->name('admin/roles/store');
     Route::get('roles/search', [RoleController::class, 'search'])->name('admin/roles/search');
     Route::get('roles-data', [RoleController::class, 'indexData'])->name('admin/roles/indexData');
-    Route::get('roles/{role}', [RoleController::class, 'edit'])->name('admin/roles/edit');
+    Route::get('roles/{role}', [RoleController::class, 'show'])->name('admin/roles/show');
+    Route::get('roles/{role}/edit', [RoleController::class, 'edit'])->name('admin/roles/edit');
     Route::put('roles/{role}', [RoleController::class, 'update'])->name('admin/roles/update');
     Route::delete('roles/{role}', [RoleController::class, 'destroy'])->name('admin/roles/destroy');
 
@@ -61,5 +62,4 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('permissions/{permission}', [PermissionController::class, 'edit'])->name('admin/permissions/edit');
     Route::put('permissions/{permission}', [PermissionController::class, 'update'])->name('admin/permissions/update');
     Route::delete('permissions/{permission}', [PermissionController::class, 'destroy'])->name('admin/permissions/destroy');
-
 });

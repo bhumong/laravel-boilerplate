@@ -6,11 +6,11 @@
                 {{$slot}}
             </div>
             <div class="modal-footer">
-                <button type="button" class="btn btn-secondary" data-dismiss="modal">Cancel</button>
+                <button type="button" class="btn btn-secondary font-weight-bold" data-dismiss="modal">Cancel</button>
                 <form action="{{$action}}" method="post">
                     @method('DELETE')
                     @csrf
-                    <button type="submit" class="btn btn-danger">Delete</button>
+                    <button type="submit" class="btn btn-danger font-weight-bold">Delete</button>
                 </form>
             </div>
         </div>

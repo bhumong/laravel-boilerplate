@@ -16,8 +16,8 @@ class RoleResource extends JsonResource
             'title' => e($this->resource->title),
             'is_active' => $this->resource->is_active ? 'Active' : 'Inactive',
             'created_at' => $this->resource->created_at->format('Yd/m/y H:i'),
-            'action' => '<a href="' . route('admin/roles/edit', ['role' => $this->resource->id]) . '">
-                           <span class="badge badge-warning">Edit</span>
+            'action' => '<a href="' . route('admin/roles/show', ['role' => $this->resource->id]) . '">
+                           <span class="badge badge-primary">View</span>
                         </a>'
         ];
     }

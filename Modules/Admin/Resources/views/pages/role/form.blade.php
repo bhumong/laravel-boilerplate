@@ -2,9 +2,8 @@
 
 @section('page_level_js')
 @endsection
-
-<x-admin::app-layout>
-    <x-admin::breadcrumbs :items="[
+@php
+    $breadcrumbs = [
         [
             'link' => route('admin/dashboard'),
             'label' => 'Home',
@@ -13,11 +12,26 @@
             'link' => route('admin/roles/index'),
             'label' => 'Role List',
         ],
-        [
-            'label' => 'Role',
+    ];
+
+    if ($role->exists) {
+        $breadcrumbs[] = [
+            'link' => route('admin/roles/show', ['role' => $role->id]),
+            'label' => 'Detail',
+        ];
+        $breadcrumbs[] = [
+            'label' => 'Edit',
             'active' => true,
-        ],
-    ]">
+        ];
+    } else {
+        $breadcrumbs[] = [
+            'label' => 'Add',
+            'active' => true,
+        ];
+    }
+@endphp
+<x-admin::app-layout>
+    <x-admin::breadcrumbs :items="$breadcrumbs">
         <x-slot:title>
             @if ($role->exists)
                 Edit Role
@@ -61,20 +75,9 @@
                 ]"
             />
             <div class="text-right">
-                @if ($role->exists)
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#destroy-modal">Delete</button>
-                @endif
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary font-weight-bold">Save</button>
             </div>
         </form>
-        @if ($role->exists)
-        <x-admin::modal-delete 
-            :action="route('admin/roles/destroy', ['role' => $role->id])"
-            :id="'destroy-modal'"
-        >
-            <h4 class="text-center">Are you sure want delete role "{{$role->title}}"?</h4>
-        </x-admin::modal-delete>
-        @endif
     </x-admin::card>
 </x-admin::app-layout>
 

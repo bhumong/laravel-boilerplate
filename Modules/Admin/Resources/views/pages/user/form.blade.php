@@ -85,13 +85,13 @@
             />
             <div class="text-right">
                 @if ($user->exists)
-                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#destroy-modal">Delete</button>
+                    <button type="button" class="btn btn-danger font-weight-bold" data-toggle="modal" data-target="#destroy-modal">Delete</button>
                 @endif
-                <button type="submit" class="btn btn-primary">Save</button>
+                <button type="submit" class="btn btn-primary font-weight-bold">Save</button>
             </div>
         </form>
         @if ($user->exists)
-        <x-admin::modal-delete 
+        <x-admin::modal-delete
             :action="route('admin/users/destroy', ['user' => $user->id])"
             :id="'destroy-modal'"
         >

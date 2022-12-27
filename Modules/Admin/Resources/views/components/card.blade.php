@@ -1,12 +1,12 @@
 <!-- Default box -->
 <div class="card">
-    @if (isset($title) || isset($isTool))
+    @if (!empty($title) || !empty($isTool))
     <div class="card-header">
-        @isset($title)
+        @if(!empty($title))
             <h3 class="card-title">{{ $title }}</h3>
-        @endisset
+        @endif
 
-        @isset($isTool)
+        @if(!empty($isTool))
             <div class="card-tools">
                 <button type="button" class="btn btn-tool" data-card-widget="collapse" title="Collapse">
                     <i class="bi bi bi-dash-lg text-warning"></i>
@@ -15,7 +15,7 @@
                     <i class="bi bi-x-lg text-danger"></i>
                 </button>
             </div>
-        @endisset
+        @endif
     </div>
     @endif
 
