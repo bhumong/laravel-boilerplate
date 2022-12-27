@@ -24,6 +24,7 @@ class PermissionRepository implements DataTableSourceInterface
     {
         $permissionQuery = Permission::query();
         $this->filterPermission($permissionQuery, $dataTable);
+        $this->filterRoles($permissionQuery, $dataTable);
         return $permissionQuery;
     }
 
@@ -37,6 +38,21 @@ class PermissionRepository implements DataTableSourceInterface
         $search = $dataTable->search->value;
         if ($search) {
             $query->where('permission', 'like', "%${search}%");
+        }
+    }
+
+    /**
+     * @param \Illuminate\Database\Eloquent\Builder $query
+     * @param DataTable $dataTable
+     * @return void
+     */
+    private function filterRoles($query, DataTable $dataTable)
+    {
+        $search = $dataTable->getColumnSearchValue('role');
+        if ($search) {
+            $query->whereHas('roles', function ($inQuery) use ($search) {
+                $inQuery->where('id', $search);
+            });
         }
     }
 
