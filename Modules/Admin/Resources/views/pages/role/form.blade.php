@@ -1,6 +1,7 @@
 @section('title', 'Role')
 
 @section('page_level_js')
+<x-admin::script.autocomplete />
 @endsection
 @php
     $breadcrumbs = [
@@ -40,7 +41,7 @@
             @endif
         </x-slot>
     </x-admin::breadcrumbs>
-    <x-admin::card :isTool="true">
+    <x-admin::card :isTool="true" :title="'ID : ' . $role->id">
         @if ($role->exists)
         <form action="{{route('admin/roles/update', ['role' => $role->id])}}" method="POST">
             @method("PUT")
@@ -61,6 +62,20 @@
                 :placeholder="''"
                 :value="$role->description ?? old('description')"
             />
+
+            <x-admin::form.input-select2
+                :name="'permissions[]'"
+                :label="'Permissions'"
+                :value="'1'"
+                :class="'select2-permission'"
+                :multiple="'1'"
+            >
+            @if ($role->permissions->isNotEmpty())
+                @foreach ($role->permissions as $permission)
+                    <option value="{{$permission->id}}" selected="selected">{{$permission->permission}}</option>
+                @endforeach
+            @endif
+            </x-admin::form.input-select2>
 
             <x-admin::form.input-checkbox
                 :name="'is_active'"

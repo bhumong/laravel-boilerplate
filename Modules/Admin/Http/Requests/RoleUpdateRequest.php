@@ -4,8 +4,7 @@ namespace Modules\Admin\Http\Requests;
 
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
-use Modules\Admin\Entities\Role;
-use Illuminate\Validation\Rules;
+use Modules\Admin\Entities\Permission;
 
 class RoleUpdateRequest extends FormRequest
 {
@@ -30,6 +29,8 @@ class RoleUpdateRequest extends FormRequest
             'title' => ['required', 'string'],
             'description' => ['required', 'string', 'min:5'],
             'is_active' => ['nullable', 'boolean'],
+            'permissions' => ['array', 'nullable'],
+            'permissions.*' => ['string', Rule::exists(Permission::class, 'id')]
         ];
     }
 }

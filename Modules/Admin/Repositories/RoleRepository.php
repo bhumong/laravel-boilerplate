@@ -5,6 +5,7 @@ namespace Modules\Admin\Repositories;
 use App\Utilities\DT\DataTable;
 use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
+use Arr;
 use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
 use Modules\Admin\Entities\Role;
@@ -85,21 +86,25 @@ class RoleRepository implements DataTableSourceInterface
     public function update(Role $role, array $data)
     {
         $data = collect($data)->only([
-            'title', 'is_active', 'description'
+            'title', 'is_active', 'description', 'permission_ids'
         ])->toArray();
+        $permissionIds = Arr::pull($data, 'permission_ids');
         $data['updated_at'] = now();
         $role->updateOrFail($data);
+        $role->permissions()->sync($permissionIds);
         return $role;
     }
 
     public function create(array $data)
     {
         $data = collect($data)->only([
-            'title', 'is_active', 'description'
+            'title', 'is_active', 'description', 'permission_ids'
         ])->toArray();
+        $permissionIds = Arr::pull($data, 'permission_ids');
         $data['created_at'] = now();
         $role = new Role($data);
         $role->saveOrFail();
+        $role->permissions()->sync($permissionIds);
         return $role;
     }
 

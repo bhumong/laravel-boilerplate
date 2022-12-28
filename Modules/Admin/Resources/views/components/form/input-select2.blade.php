@@ -1,16 +1,18 @@
-@props(['name', 'class', 'label', 'value'])
+@props(['name', 'class', 'label', 'value', 'multiple'])
 
 @php
     $label = $label ?? '';
-    $value = $value ?? ''; 
+    $value = $value ?? '';
+    $nameReformat = preg_replace("/[^a-zA-Z0-9]+/", "", $name ?? '');
 @endphp
 
 <div class="form-group">
-    <label for="{{ $name }}">{{ $label }}</label>
-    <select class="form-control {{$class}} @error($name) is-invalid @enderror" 
-        id="{{$name}}"
+    <label for="{{ $nameReformat }}">{{ $label }}</label>
+    <select class="form-control {{$class}} @error($nameReformat) is-invalid @enderror"
+        @if (!empty($multiple)) multiple="multiple" @endif
+        id="{{$nameReformat}}"
         value="{{ $value }}"
-        name="{{$name}}" 
+        name="{{$name}}"
     >
     @isset($slot)
         {{$slot}}

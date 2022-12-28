@@ -4,6 +4,7 @@ namespace Modules\Admin\Http\Controllers;
 
 
 use App\Utilities\Enum\PermissionTypeEnum;
+use Illuminate\Http\Request;
 use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Permission;
 use Modules\Admin\Http\Requests\PermissionCreateRequest;
@@ -72,5 +73,13 @@ class PermissionController extends Controller
     {
         $permissionRepository->delete($permission);
         return redirect()->route('admin/permissions/index');
+    }
+
+    public function search(PermissionRepository $permissionRepository, Request $request)
+    {
+        $search = $request->input('search', '');
+        return [
+            'results' => $permissionRepository->autocomplete($search)
+        ];
     }
 }

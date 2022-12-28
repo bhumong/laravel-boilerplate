@@ -47,7 +47,9 @@ class RoleController extends Controller
 
     public function store(RoleCreateRequest $request, RoleRepository $roleRepository)
     {
-        $roleRepository->create($request->all());
+        $data = $request->except('permissions');
+        $data['permission_ids'] = $request->input('permissions', []);
+        $roleRepository->create($data);
         return redirect()->route('admin/roles/index');
     }
 
@@ -67,7 +69,8 @@ class RoleController extends Controller
 
     public function update(RoleUpdateRequest $request, Role $role, RoleRepository $roleRepository)
     {
-        $updateData = $request->all();
+        $updateData = $request->except('permissions');
+        $updateData['permission_ids'] = $request->input('permissions', []);
         $roleRepository->update($role, $updateData);
         return redirect()->route('admin/roles/index');
     }

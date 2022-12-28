@@ -3,6 +3,7 @@
 namespace Modules\Admin\Repositories;
 
 use App\Utilities\DT\DataTable;
+use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
 use Illuminate\Support\Collection;
 use Modules\Admin\Entities\Permission;
@@ -104,5 +105,22 @@ class PermissionRepository implements DataTableSourceInterface
     public function delete(Permission $permission)
     {
         $permission->deleteOrFail();
+    }
+
+    public function autocomplete(string $name = '')
+    {
+        $query = Permission::query()->select('permission', 'id');
+        if ($name) {
+            QueryHelper::searchColumns($query, ['permission'], QueryHelper::tokenizeKeywords($name));
+        }
+        $query->where('is_active', true)
+            ->limit(100);
+
+        return $query->get()->map(function (Permission $permission) {
+            return [
+                'id' => $permission->id,
+                'text' => $permission->permission
+            ];
+        });
     }
 }

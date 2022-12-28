@@ -57,6 +57,7 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('permissions', [PermissionController::class, 'index'])->name('admin/permissions/index');
     Route::get('permissions/create', [PermissionController::class, 'create'])->name('admin/permissions/create');
+    Route::get('permissions/search', [PermissionController::class, 'search'])->name('admin/permissions/search');
     Route::post('permissions', [PermissionController::class, 'store'])->name('admin/permissions/store');
     Route::get('permissions-data', [PermissionController::class, 'indexData'])->name('admin/permissions/indexData');
     Route::get('permissions/{permission}', [PermissionController::class, 'edit'])->name('admin/permissions/edit');
