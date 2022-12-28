@@ -48,7 +48,7 @@ class PermissionRepository implements DataTableSourceInterface
      */
     private function filterRoles($query, DataTable $dataTable)
     {
-        $search = $dataTable->getColumnSearchValue('role');
+        $search = $dataTable->getColumnSearchValue('roles');
         if ($search) {
             $query->whereHas('roles', function ($inQuery) use ($search) {
                 $inQuery->where('id', $search);

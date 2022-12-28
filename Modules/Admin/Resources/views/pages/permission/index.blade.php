@@ -39,6 +39,7 @@ $(document).ready(function () {
                     <tr>
                         <th data-data="permission">Permission</th>
                         <th data-data="is_active">Status</th>
+                        <th data-data="roles" data-orderable="false">Roles</th>
                         <th data-data="created_at">Created At</th>
                         <th data-data="action" data-orderable="false">Action</th>
                     </tr>

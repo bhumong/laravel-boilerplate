@@ -1,6 +1,25 @@
 @section('title', 'Role')
 
 @section('page_level_js')
+
+<x-admin::script.dataTableHelper />
+
+<script type="module">
+
+$(document).ready(function () {
+    const $permissionTable = $("#permission-list-datatable").DataTable({
+        processing: true,
+        serverSide: true,
+        ajax: "{{ route('admin/permissions/indexData') }}",
+        lengthMenu: [20, 50, 100],
+    });
+
+    const roleId = "{{$role->id}}";
+    filterDataTable($permissionTable, {
+        roles: roleId
+    });
+});
+</script>
 @endsection
 
 <x-admin::app-layout>
@@ -56,7 +75,7 @@
               </tr>
               <tr>
                 <th scope="row">Active</th>
-                <td>{{ $role->active ? __('active') : __('inactive') }}</td>
+                <td>{{ $role->is_active ? __('active') : __('inactive') }}</td>
               </tr>
               <tr>
                 <th scope="row">Created at</th>
@@ -71,7 +90,21 @@
     </x-admin::card>
 
     <x-admin::card :title="'Permissions'">
-        <h1>test</h1>
+        <div class="responsive-table">
+            <table id="permission-list-datatable" class="table table-striped">
+                <thead>
+                    <tr>
+                        <th data-data="permission">Permission</th>
+                        <th data-data="is_active">Status</th>
+                        <th data-data="created_at">Created At</th>
+                        <th data-data="roles" data-visible="false">Roles</th>
+                        <th data-data="action" data-orderable="false" data-visible="false">Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                </tbody>
+            </table>
+        </div>
     </x-admin::card>
 
     <x-admin::modal-delete

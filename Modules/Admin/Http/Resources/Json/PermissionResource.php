@@ -3,6 +3,7 @@
 namespace Modules\Admin\Http\Resources\Json;
 
 use App\Models\Permission;
+use App\Models\Role;
 use Illuminate\Http\Resources\Json\JsonResource;
 
 class PermissionResource extends JsonResource
@@ -14,6 +15,11 @@ class PermissionResource extends JsonResource
     {
         return [
             'permission' => e($this->resource->permission),
+            'roles' => $this->resource->roles->isNotEmpty() ?
+                $this->resource->roles->map(function (Role $role) {
+                    return $role->title;
+                })->flatten()->implode(', ') :
+                '-',
             'is_active' => $this->resource->is_active ? 'Active' : 'Inactive',
             'created_at' => $this->resource->created_at->format('Yd/m/y H:i'),
             'action' => '<a href="' . route('admin/permissions/edit', ['permission' => $this->resource->id]) . '">
