@@ -14,7 +14,11 @@
             'label' => 'Permission List',
         ],
         [
-            'label' => 'Permission',
+            'link' => route('admin/permissions/show', ['permission' => $permission->id]),
+            'label' => 'Detail',
+        ],
+        [
+            'label' => 'Edit',
             'active' => true,
         ],
     ]">

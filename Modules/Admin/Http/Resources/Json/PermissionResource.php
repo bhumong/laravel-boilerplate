@@ -21,8 +21,8 @@ class PermissionResource extends JsonResource
                 })->flatten()->implode(', ') :
                 '-',
             'is_active' => $this->resource->is_active ? 'Active' : 'Inactive',
-            'created_at' => $this->resource->created_at->format('Yd/m/y H:i'),
-            'action' => '<a href="' . route('admin/permissions/edit', ['permission' => $this->resource->id]) . '">
+            'created_at' => $this->resource->created_at->format('d/m/Y H:i'),
+            'action' => '<a href="' . route('admin/permissions/show', ['permission' => $this->resource->id]) . '">
                            <span class="badge badge-primary">View</span>
                         </a>'
         ];

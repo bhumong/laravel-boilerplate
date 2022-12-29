@@ -44,15 +44,11 @@ class PermissionController extends Controller
         return redirect()->route('admin/permissions/index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param int $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Permission $permission)
     {
-        //
+        return view('admin::pages/permission/detail', [
+            'permission' => $permission
+        ]);
     }
 
     public function edit(Permission $permission)
