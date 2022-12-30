@@ -1,4 +1,4 @@
-@section('title', 'Role')
+@section('title', 'Permission - Detail')
 
 @section('page_level_js')
 <script type="module">
@@ -66,11 +66,11 @@
               </tr>
               <tr>
                 <th scope="row">Created at</th>
-                <td>{{ $permission->created_at->format('Yd/m/y H:i') }}</td>
+                <td>{{ $permission->created_at->format('d/m/Y H:i') }}</td>
               </tr>
               <tr>
                 <th scope="row">Last Updated at</th>
-                <td>{{ $permission->updated_at->format('Yd/m/y H:i') }}</td>
+                <td>{{ $permission->updated_at->format('d/m/Y H:i') }}</td>
               </tr>
             </tbody>
           </table>

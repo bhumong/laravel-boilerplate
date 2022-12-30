@@ -1,4 +1,4 @@
-@section('title', 'Role')
+@section('title', 'Role - Form')
 
 @section('page_level_js')
 <x-admin::script.autocomplete />

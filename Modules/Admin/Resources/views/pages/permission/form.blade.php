@@ -1,4 +1,4 @@
-@section('title', 'Role')
+@section('title', 'Permission - Form')
 
 @section('page_level_js')
 @endsection
@@ -31,7 +31,7 @@
         </x-slot>
     </x-admin::breadcrumbs>
 
-    <x-admin::card :isTool="true">
+    <x-admin::card :isTool="true" :title="'ID : ' . $permission->id">
         @if ($permission->exists)
             <form action="{{route('admin/permissions/update', ['permission' => $permission->id])}}" method="POST">
             @method("PUT")
@@ -66,21 +66,9 @@
             ]"
         />
         <div class="text-right">
-            @if ($permission->exists)
-                <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#destroy-modal">Delete</button>
-            @endif
-            <button type="submit" class="btn btn-primary">Save</button>
+            <button type="submit" class="btn btn-primary font-weight-bold">Save</button>
         </div>
     </form>
-
-    @if ($permission->exists)
-        <x-admin::modal-delete
-            :action="route('admin/permissions/destroy', ['permission' => $permission->id])"
-            :id="'destroy-modal'"
-        >
-            <h4 class="text-center">Are you sure want delete role "{{$permission->permission}}"?</h4>
-        </x-admin::modal-delete>
-    @endif
     </x-admin::card>
 
 </x-admin::app-layout>

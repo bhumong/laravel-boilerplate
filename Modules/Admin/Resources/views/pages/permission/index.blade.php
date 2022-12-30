@@ -1,4 +1,4 @@
-@section('title', 'Permission')
+@section('title', 'Permission - List')
 
 @section('page_level_js')
 <script type="module">
@@ -41,7 +41,7 @@ $(document).ready(function () {
                         <th data-data="is_active">Status</th>
                         <th data-data="roles" data-orderable="false">Roles</th>
                         <th data-data="created_at">Created At</th>
-                        <th data-data="action" data-orderable="false">Action</th>
+                        <th data-data="action" data-orderable="false"></th>
                     </tr>
                 </thead>
                 <tbody>
