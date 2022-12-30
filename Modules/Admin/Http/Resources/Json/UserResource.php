@@ -22,8 +22,8 @@ class UserResource extends JsonResource
             'name' => e($this->resource->name),
             'email' => $this->resource->email,
             'role' => $this->resource->role->title ?? '-',
-            'action' => '<a href="' . route('admin/users/edit', ['user' => $this->id]) . '">
-                           <span class="badge badge-warning">Edit</span>
+            'action' => '<a href="' . route('admin/users/show', ['user' => $this->id]) . '">
+                           <span class="badge badge-primary">Detail</span>
                         </a>'
         ];
     }

@@ -1,4 +1,4 @@
-@section('title', 'User')
+@section('title', 'User - Form')
 
 @section('page_level_js')
     <x-admin::script.autocomplete />
@@ -15,6 +15,10 @@
             'label' => 'User List',
         ],
         [
+            'link' => route('admin/users/show', ['user' => $user->id]),
+            'label' => 'Detail',
+        ],
+        [
             'label' => 'User',
             'active' => true,
         ],
@@ -27,7 +31,7 @@
             @endif
         </x-slot>
     </x-admin::breadcrumbs>
-    <x-admin::card :isTool="true">
+    <x-admin::card :isTool="true" :title="'ID : ' . $user->id">
         @if ($user->exists)
         <form action="{{route('admin/users/update', ['user' => $user->id])}}" method="POST">
             @method("PUT")
@@ -84,20 +88,9 @@
                 ]"
             />
             <div class="text-right">
-                @if ($user->exists)
-                    <button type="button" class="btn btn-danger font-weight-bold" data-toggle="modal" data-target="#destroy-modal">Delete</button>
-                @endif
                 <button type="submit" class="btn btn-primary font-weight-bold">Save</button>
             </div>
         </form>
-        @if ($user->exists)
-        <x-admin::modal-delete
-            :action="route('admin/users/destroy', ['user' => $user->id])"
-            :id="'destroy-modal'"
-        >
-            <h4 class="text-center">Are you sure want delete user "{{$user->name}}"?</h4>
-        </x-admin::modal-delete>
-        @endif
     </x-admin::card>
 </x-admin::app-layout>
 

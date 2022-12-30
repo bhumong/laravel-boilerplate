@@ -41,7 +41,8 @@ Route::middleware('auth.admin')->group(function () {
     Route::post('users', [UserController::class, 'store'])->name('admin/users/store');
     Route::get('users/create', [UserController::class, 'create'])->name('admin/users/create');
     Route::get('users-data', [UserController::class, 'indexData'])->name('admin/users/indexData');
-    Route::get('users/{user}', [UserController::class, 'edit'])->name('admin/users/edit');
+    Route::get('users/{user}', [UserController::class, 'show'])->name('admin/users/show');
+    Route::get('users/{user}/edit', [UserController::class, 'edit'])->name('admin/users/edit');
     Route::put('users/{user}', [UserController::class, 'update'])->name('admin/users/update');
     Route::delete('users/{user}', [UserController::class, 'destroy'])->name('admin/users/destroy');
 

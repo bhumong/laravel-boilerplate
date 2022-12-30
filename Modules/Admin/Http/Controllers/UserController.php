@@ -64,4 +64,11 @@ class UserController extends Controller
         $userRepository->delete($user);
         return redirect()->route('admin/users/index');
     }
+
+    public function show(User $user)
+    {
+        return view('admin::pages/user/detail', [
+            'user' => $user
+        ]);
+    }
 }

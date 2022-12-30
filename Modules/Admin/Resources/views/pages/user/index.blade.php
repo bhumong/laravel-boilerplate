@@ -1,4 +1,4 @@
-@section('title', 'User')
+@section('title', 'User - List')
 
 @section('page_level_js')
 <script type="module">
@@ -53,7 +53,7 @@ $(document).ready(function () {
                         <th data-data="name">Name</th>
                         <th data-data="email">Email</th>
                         <th data-data="role" data-orderable="false">Role</th>
-                        <th data-data="action" data-orderable="false">Action</th>
+                        <th data-data="action" data-orderable="false"></th>
                     </tr>
                 </thead>
                 <tbody>
