@@ -20,4 +20,11 @@ enum PermissionSlugEnum: string
     case adminRoleDelete = 'admin::role/delete';
     case adminRoleUpdate = 'admin::role/update';
     case adminRoleApplyChange = 'admin::role/applyChange';
+
+    case adminPermissionIndex = 'admin::permission/index';
+    case adminPermissionGet = 'admin::permission/get';
+    case adminPermissionCreate = 'admin::permission/create';
+    case adminPermissionDelete = 'admin::permission/delete';
+    case adminPermissionUpdate = 'admin::permission/update';
+    case adminPermissionGenerate = 'admin::permission/generate';
 }
