@@ -52,8 +52,13 @@
             </div>
             <div class="col">
                 <div class="container text-right">
+                    @can('update', $permission)
                     <a href="{{route('admin/permissions/edit', ['permission' => $permission->id])}}" class="btn btn-warning font-weight-bold">Edit</a>
+                    @endcan
+
+                    @can('delete', $permission)
                     <button type="button" class="btn btn-danger font-weight-bold" data-toggle="modal" data-target="#destroy-modal">Delete</button>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -90,11 +95,13 @@
           </table>
     </x-admin::card>
 
+    @can('delete', $permission)
     <x-admin::modal-delete
         :action="route('admin/permissions/destroy', ['permission' => $permission->id])"
         :id="'destroy-modal'"
         >
         <h4 class="text-center">Are you sure want delete permissions "{{$permission->permission}}"?</h4>
     </x-admin::modal-delete>
+    @endcan
 </x-admin::app-layout>
 

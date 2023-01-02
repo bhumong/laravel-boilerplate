@@ -31,9 +31,17 @@ $(document).ready(function () {
 
     <x-admin::card>
         <div class="text-right">
+            @can('generate', Modules\Admin\Entities\Permission::class)
             <button type="button" class="btn btn-warning font-weight-bold" data-toggle="modal" data-target="#generate-modal">Generate</button>
+            @endcan
+
+            @can('applyChange', Modules\Admin\Entities\Role::class)
             <button type="button" class="btn btn-info font-weight-bold" data-toggle="modal" data-target="#apply-change-modal">Apply Change</button>
+            @endcan
+
+            @can('create', Modules\Admin\Entities\Permission::class)
             <a href="{{route('admin/permissions/create')}}" class="btn btn-primary text-right font-weight-bold">Create Permission</a>
+            @endcan
         </div>
         <br>
         <div class="responsive-table">
@@ -53,6 +61,7 @@ $(document).ready(function () {
         </div>
     </x-admin::card>
 
+    @can('generate', Modules\Admin\Entities\Permission::class)
     <x-admin::modal :id="'generate-modal'">
         <h4 class="text-center">Are you sure want generate permissions?</h4>
         <x-slot:footer>
@@ -64,7 +73,9 @@ $(document).ready(function () {
             </form>
         </x-slot:footer>
     </x-admin::modal>
+    @endcan
 
+    @can('applyChange', Modules\Admin\Entities\Role::class)
     <x-admin::modal :id="'apply-change-modal'">
         <h4 class="text-center">Are you sure want apply change roles and permissions?</h4>
         <x-slot:footer>
@@ -76,4 +87,6 @@ $(document).ready(function () {
             </form>
         </x-slot:footer>
     </x-admin::modal>
+    @endcan
+
 </x-admin::app-layout>

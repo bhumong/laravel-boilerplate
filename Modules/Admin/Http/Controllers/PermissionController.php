@@ -20,6 +20,8 @@ class PermissionController extends Controller
 {
     public function index()
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('index', Permission::class);
         return view('admin::pages/permission/index');
     }
 
@@ -35,6 +37,9 @@ class PermissionController extends Controller
      */
     public function create()
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('create', Permission::class);
+
         $permission = new Permission();
         return view('admin::pages/permission/form', [
             'permission' => $permission
@@ -43,12 +48,18 @@ class PermissionController extends Controller
 
     public function store(PermissionCreateRequest $request, PermissionRepository $permissionRepository)
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('create', Permission::class);
+
         $permissionRepository->create(array_merge($request->all(), ['type' => PermissionTypeEnum::slug->value]));
         return redirect()->route('admin/permissions/index');
     }
 
     public function show(Permission $permission)
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('get', $permission);
+
         return view('admin::pages/permission/detail', [
             'permission' => $permission
         ]);
@@ -56,6 +67,9 @@ class PermissionController extends Controller
 
     public function edit(Permission $permission)
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('update', $permission);
+
         return view('admin::pages/permission/form', [
             'permission' => $permission
         ]);
@@ -63,6 +77,9 @@ class PermissionController extends Controller
 
     public function update(PermissionUpdateRequest $request, Permission $permission, PermissionRepository $permissionRepository)
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('update', $permission);
+
         $updateData = $request->all();
         $permissionRepository->update($permission, $updateData);
         return redirect()->route('admin/permissions/index');
@@ -70,6 +87,9 @@ class PermissionController extends Controller
 
     public function destroy(Permission $permission, PermissionRepository $permissionRepository)
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('delete', $permission);
+
         $permissionRepository->delete($permission);
         return redirect()->route('admin/permissions/index');
     }
@@ -84,6 +104,9 @@ class PermissionController extends Controller
 
     public function generate(PermissionRepository $permissionRepository, Rbac $rbac)
     {
+        /** see Modules/Admin/Policies/PermissionPolicy.php */
+        $this->authorize('generate', Permission::class);
+
         $slugPermissions = PermissionSlugEnum::values();
         $insertData = [];
         $now = now();
