@@ -174,15 +174,15 @@ use Modules\Admin\Utilities\Enum\FlashEnum;
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @if ($errors->hasBag(FlashEnum::error->name))
+            @if ($errors->hasBag(FlashEnum::error->value))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>{{$errors->getBag(FlashEnum::error->name)->first()}}</strong>
+                    <strong>{{$errors->getBag(FlashEnum::error->value)->first()}}</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
             @endif
-            @if ($message = session()->get(FlashEnum::success->name))
+            @if ($message = session()->get(FlashEnum::success->value))
                 <div class="alert alert-success alert-dismissible fade show" role="alert">
                     <strong>{{$message}}</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">

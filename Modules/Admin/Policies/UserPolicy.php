@@ -5,10 +5,10 @@ namespace Modules\Admin\Policies;
 use App\Utilities\Enum\PermissionTypeEnum;
 use Illuminate\Auth\Access\HandlesAuthorization;
 use Modules\Admin\Entities\User;
-use Modules\Admin\Enum\PermissionSlugEnum;
 use Modules\Admin\Repositories\PermissionRepository;
 use Modules\Admin\Services\Rbac\Rbac;
 use Illuminate\Auth\Access\Response;
+use Modules\Admin\Enum\PermissionSlugEnum;
 
 class UserPolicy
 {

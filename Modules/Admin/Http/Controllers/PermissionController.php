@@ -94,7 +94,7 @@ class PermissionController extends Controller
                 $insertData[] = [
                     'id' => Str::uuid(),
                     'permission' => $slugPermission,
-                    'type' => PermissionTypeEnum::slug->name,
+                    'type' => PermissionTypeEnum::slug->value,
                     'is_active' => 1,
                     'created_at' => $now,
                 ];
@@ -104,7 +104,7 @@ class PermissionController extends Controller
             $permissionRepository->insert($insertData);
         }
         $rbac->cache();
-        session()->flash(FlashEnum::success->name, 'Success generate permissions.');
+        session()->flash(FlashEnum::success->value, 'Success generate permissions.');
         return redirect()->route('admin/permissions/index');
     }
 }

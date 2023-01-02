@@ -85,7 +85,7 @@ class RoleController extends Controller
     public function applyChange(Rbac $rbac)
     {
         $rbac->cache();
-        session()->flash(FlashEnum::success->name, 'Success apply role.');
+        session()->flash(FlashEnum::success->value, 'Success apply role.');
         return redirect()->route('admin/roles/index');
     }
 }

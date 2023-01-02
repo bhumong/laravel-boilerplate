@@ -134,14 +134,14 @@ class PermissionRepository implements DataTableSourceInterface
     {
         return Permission::query()
             ->where('permission', $permission)
-            ->where('type', $type->name)
+            ->where('type', $type->value)
             ->exists();
     }
 
     public function getBySlug(PermissionTypeEnum $type)
     {
         return Permission::query()
-            ->where('type', $type->name)
+            ->where('type', $type->value)
             ->get();
     }
 }
