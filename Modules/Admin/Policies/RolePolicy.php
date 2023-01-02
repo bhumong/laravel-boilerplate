@@ -100,7 +100,7 @@ class RolePolicy
         $can = $this->rbac->can(
             $user,
             $this->rbac->findByPermissionAndType(
-                PermissionSlugEnum::adminRoleDelete->value,
+                PermissionSlugEnum::adminRoleApplyChange->value,
                 PermissionTypeEnum::slug
             )
         );
