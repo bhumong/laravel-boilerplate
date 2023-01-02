@@ -1,6 +1,6 @@
 <?php
 
-namespace Modules\Admin\Enum;
+namespace Modules\Admin\Utilities\Enum;
 
 use App\Utilities\Enum\Traits\BasicEnumTrait;
 

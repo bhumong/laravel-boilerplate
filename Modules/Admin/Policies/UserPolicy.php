@@ -8,7 +8,7 @@ use Modules\Admin\Entities\User;
 use Modules\Admin\Repositories\PermissionRepository;
 use Modules\Admin\Services\Rbac\Rbac;
 use Illuminate\Auth\Access\Response;
-use Modules\Admin\Enum\PermissionSlugEnum;
+use Modules\Admin\Utilities\Enum\PermissionSlugEnum;
 
 class UserPolicy
 {

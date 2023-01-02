@@ -7,7 +7,6 @@ use App\Utilities\Enum\PermissionTypeEnum;
 use Illuminate\Http\Request;
 use Illuminate\Support\Str;
 use Modules\Admin\Entities\Permission;
-use Modules\Admin\Enum\PermissionSlugEnum;
 use Modules\Admin\Http\Requests\PermissionCreateRequest;
 use Modules\Admin\Http\Requests\PermissionUpdateRequest;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
@@ -15,6 +14,7 @@ use Modules\Admin\Http\Resources\Json\PermissionResource;
 use Modules\Admin\Repositories\PermissionRepository;
 use Modules\Admin\Services\Rbac\Rbac;
 use Modules\Admin\Utilities\Enum\FlashEnum;
+use Modules\Admin\Utilities\Enum\PermissionSlugEnum;
 
 class PermissionController extends Controller
 {
