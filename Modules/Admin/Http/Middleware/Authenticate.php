@@ -25,7 +25,7 @@ class Authenticate extends Middleware
     {
         /** @var Rbac */
         $rbac = App::make(Rbac::class);
-        $rbac->generateRoles();
+        $rbac->generate();
         return parent::authenticate($request, $guards);
     }
 }

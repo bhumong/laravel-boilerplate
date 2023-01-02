@@ -37,7 +37,7 @@ class Rbac
         return $this->roles;
     }
 
-    public function generateRoles()
+    public function generate()
     {
         $roles = Cache::remember('rbac_roles', TimeEnum::oneDayInSecond->value, function () {
             return $this->roleRepository->all(['permissions']);
@@ -54,7 +54,7 @@ class Rbac
     public function cache()
     {
         $this->clearCache();
-        $this->generateRoles();
+        $this->generate();
     }
 
     /**
