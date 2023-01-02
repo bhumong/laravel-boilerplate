@@ -6,6 +6,7 @@ use App\Utilities\DT\DataTable;
 use App\Utilities\Enum\PermissionTypeEnum;
 use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
+use DB;
 use Illuminate\Support\Collection;
 use Modules\Admin\Entities\Permission;
 
@@ -105,7 +106,15 @@ class PermissionRepository implements DataTableSourceInterface
 
     public function delete(Permission $permission)
     {
-        $permission->deleteOrFail();
+        DB::beginTransaction();
+        try {
+            $permission->roles()->sync([]);
+            $permission->deleteOrFail();
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     public function autocomplete(string $name = '')

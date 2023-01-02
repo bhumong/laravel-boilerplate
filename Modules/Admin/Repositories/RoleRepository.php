@@ -6,8 +6,8 @@ use App\Utilities\DT\DataTable;
 use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
 use Arr;
-use Illuminate\Database\Query\Builder;
 use Illuminate\Support\Collection;
+use Illuminate\Support\Facades\DB;
 use Modules\Admin\Entities\Role;
 
 class RoleRepository implements DataTableSourceInterface
@@ -110,7 +110,16 @@ class RoleRepository implements DataTableSourceInterface
 
     public function delete(Role $role)
     {
-        $role->deleteOrFail();
+        DB::beginTransaction();
+        try {
+            $role->users()->update(['role_id' => null]);
+            $role->permissions()->sync([]);
+            $role->deleteOrFail();
+            DB::commit();
+        } catch (\Throwable $th) {
+            DB::rollBack();
+            throw $th;
+        }
     }
 
     public function toggleActive(Role $role)
