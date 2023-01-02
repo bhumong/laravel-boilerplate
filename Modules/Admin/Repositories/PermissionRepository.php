@@ -3,6 +3,7 @@
 namespace Modules\Admin\Repositories;
 
 use App\Utilities\DT\DataTable;
+use App\Utilities\Enum\PermissionTypeEnum;
 use App\Utilities\Helper\QueryHelper;
 use App\Utilities\Interface\DataTableSourceInterface;
 use Illuminate\Support\Collection;
@@ -122,5 +123,25 @@ class PermissionRepository implements DataTableSourceInterface
                 'text' => $permission->permission
             ];
         });
+    }
+
+    public function insert($values)
+    {
+        return Permission::insert($values);
+    }
+
+    public function existsByPermissionAndType($permission, PermissionTypeEnum $type)
+    {
+        return Permission::query()
+            ->where('permission', $permission)
+            ->where('type', $type->name)
+            ->exists();
+    }
+
+    public function getBySlug(PermissionTypeEnum $type)
+    {
+        return Permission::query()
+            ->where('type', $type->name)
+            ->get();
     }
 }

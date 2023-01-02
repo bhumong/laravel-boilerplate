@@ -79,11 +79,11 @@ $(document).ready(function () {
               </tr>
               <tr>
                 <th scope="row">Created at</th>
-                <td>{{ $role->created_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $role->updated_at ? $role->updated_at->format('d/m/Y H:i') : '-' }}</td>
               </tr>
               <tr>
                 <th scope="row">Last Updated at</th>
-                <td>{{ $role->updated_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $role->updated_at ? $role->updated_at->format('d/m/Y H:i') : '-' }}</td>
               </tr>
             </tbody>
           </table>

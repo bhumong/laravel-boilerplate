@@ -3,9 +3,8 @@
 @section('page_level_js')
     <x-admin::script.autocomplete />
 @endsection
-
-<x-admin::app-layout>
-    <x-admin::breadcrumbs :items="[
+@php
+    $breadcrumbs = [
         [
             'link' => route('admin/dashboard'),
             'label' => 'Home',
@@ -14,15 +13,26 @@
             'link' => route('admin/users/index'),
             'label' => 'User List',
         ],
-        [
+    ];
+
+    if ($user->exists) {
+        $breadcrumbs[] = [
             'link' => route('admin/users/show', ['user' => $user->id]),
             'label' => 'Detail',
-        ],
-        [
-            'label' => 'User',
+        ];
+        $breadcrumbs[] = [
+            'label' => 'Edit',
             'active' => true,
-        ],
-    ]">
+        ];
+    } else {
+        $breadcrumbs[] = [
+            'label' => 'Add',
+            'active' => true,
+        ];
+    }
+@endphp
+<x-admin::app-layout>
+    <x-admin::breadcrumbs :items="$breadcrumbs">
         <x-slot:title>
             @if ($user->exists)
                 Edit User

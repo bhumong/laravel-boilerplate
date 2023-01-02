@@ -3,13 +3,14 @@
 namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
 use Modules\Admin\Entities\Role;
 use Modules\Admin\Http\Requests\RoleCreateRequest;
 use Modules\Admin\Http\Requests\RoleUpdateRequest;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\RoleResource;
 use Modules\Admin\Repositories\RoleRepository;
+use Modules\Admin\Services\Rbac\Rbac;
+use Modules\Admin\Utilities\Enum\FlashEnum;
 
 class RoleController extends Controller
 {
@@ -78,6 +79,13 @@ class RoleController extends Controller
     public function destroy(Role $role, RoleRepository $roleRepository)
     {
         $roleRepository->delete($role);
+        return redirect()->route('admin/roles/index');
+    }
+
+    public function applyChange(Rbac $rbac)
+    {
+        $rbac->cache();
+        session()->flash(FlashEnum::success->name, 'Success apply role.');
         return redirect()->route('admin/roles/index');
     }
 }

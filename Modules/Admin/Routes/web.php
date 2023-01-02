@@ -48,8 +48,9 @@ Route::middleware('auth.admin')->group(function () {
 
     Route::get('roles', [RoleController::class, 'index'])->name('admin/roles/index');
     Route::get('roles/create', [RoleController::class, 'create'])->name('admin/roles/create');
-    Route::post('roles', [RoleController::class, 'store'])->name('admin/roles/store');
     Route::get('roles/search', [RoleController::class, 'search'])->name('admin/roles/search');
+    Route::put('roles/apply-change', [RoleController::class, 'applyChange'])->name('admin/roles/applyChange');
+    Route::post('roles', [RoleController::class, 'store'])->name('admin/roles/store');
     Route::get('roles-data', [RoleController::class, 'indexData'])->name('admin/roles/indexData');
     Route::get('roles/{role}', [RoleController::class, 'show'])->name('admin/roles/show');
     Route::get('roles/{role}/edit', [RoleController::class, 'edit'])->name('admin/roles/edit');
@@ -59,6 +60,7 @@ Route::middleware('auth.admin')->group(function () {
     Route::get('permissions', [PermissionController::class, 'index'])->name('admin/permissions/index');
     Route::get('permissions/create', [PermissionController::class, 'create'])->name('admin/permissions/create');
     Route::get('permissions/search', [PermissionController::class, 'search'])->name('admin/permissions/search');
+    Route::put('permissions/generate', [PermissionController::class, 'generate'])->name('admin/permissions/generate');
     Route::post('permissions', [PermissionController::class, 'store'])->name('admin/permissions/store');
     Route::get('permissions-data', [PermissionController::class, 'indexData'])->name('admin/permissions/indexData');
     Route::get('permissions/{permission}', [PermissionController::class, 'show'])->name('admin/permissions/show');

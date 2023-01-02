@@ -122,4 +122,13 @@ class RoleRepository implements DataTableSourceInterface
         }
         $role->saveOrFail();
     }
+
+    public function all($with = null)
+    {
+        $query = Role::query();
+        if ($with) {
+            $query->with($with);
+        }
+        return $query->get();
+    }
 }

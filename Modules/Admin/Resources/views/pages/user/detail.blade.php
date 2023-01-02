@@ -70,11 +70,11 @@
               </tr>
               <tr>
                 <th scope="row">Created at</th>
-                <td>{{ $user->created_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $user->updated_at ? $user->updated_at->format('d/m/Y H:i') : '-' }}</td>
               </tr>
               <tr>
                 <th scope="row">Last Updated at</th>
-                <td>{{ $user->updated_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $user->updated_at ? $user->updated_at->format('d/m/Y H:i') : '-' }}</td>
               </tr>
             </tbody>
           </table>

@@ -43,7 +43,7 @@ $(document).ready(function () {
     </x-admin::breadcrumbs>
     <x-admin::card>
         <div class="text-right">
-            <a href="{{route('admin/users/create')}}" class="btn btn-primary text-right">Create User</a>
+            <a href="{{route('admin/users/create')}}" class="btn btn-primary text-right font-weight-bold">Create User</a>
         </div>
         <br>
         <div class="responsive-table">

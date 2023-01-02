@@ -5,9 +5,8 @@
 
 </script>
 @endsection
-
-<x-admin::app-layout>
-    <x-admin::breadcrumbs :items="[
+@php
+    $breadcrumbs = [
         [
             'link' => route('admin/dashboard'),
             'label' => 'Home',
@@ -16,11 +15,26 @@
             'link' => route('admin/permissions/index'),
             'label' => 'Permission List',
         ],
-        [
+    ];
+
+    if ($permission->exists) {
+        $breadcrumbs[] = [
+            'link' => route('admin/permissions/show', ['permission' => $permission->id]),
             'label' => 'Detail',
+        ];
+        $breadcrumbs[] = [
+            'label' => 'Edit',
             'active' => true,
-        ],
-    ]">
+        ];
+    } else {
+        $breadcrumbs[] = [
+            'label' => 'Add',
+            'active' => true,
+        ];
+    }
+@endphp
+<x-admin::app-layout>
+    <x-admin::breadcrumbs :items="$breadcrumbs">
         <x-slot:title>
             Detail Permission
         </x-slot>
@@ -66,11 +80,11 @@
               </tr>
               <tr>
                 <th scope="row">Created at</th>
-                <td>{{ $permission->created_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $permission->created_at ? $permission->created_at->format('d/m/Y H:i') : '-' }}</td>
               </tr>
               <tr>
                 <th scope="row">Last Updated at</th>
-                <td>{{ $permission->updated_at->format('d/m/Y H:i') }}</td>
+                <td>{{ $permission->updated_at ? $permission->updated_at->format('d/m/Y H:i') : '-' }}</td>
               </tr>
             </tbody>
           </table>

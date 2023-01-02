@@ -2,9 +2,8 @@
 
 @section('page_level_js')
 @endsection
-
-<x-admin::app-layout>
-    <x-admin::breadcrumbs :items="[
+@php
+    $breadcrumbs = [
         [
             'link' => route('admin/dashboard'),
             'label' => 'Home',
@@ -13,15 +12,26 @@
             'link' => route('admin/permissions/index'),
             'label' => 'Permission List',
         ],
-        [
+    ];
+
+    if ($permission->exists) {
+        $breadcrumbs[] = [
             'link' => route('admin/permissions/show', ['permission' => $permission->id]),
             'label' => 'Detail',
-        ],
-        [
+        ];
+        $breadcrumbs[] = [
             'label' => 'Edit',
             'active' => true,
-        ],
-    ]">
+        ];
+    } else {
+        $breadcrumbs[] = [
+            'label' => 'Add',
+            'active' => true,
+        ];
+    }
+@endphp
+<x-admin::app-layout>
+    <x-admin::breadcrumbs :items="$breadcrumbs">
         <x-slot:title>
             @if ($permission->exists)
                 Update Permission
