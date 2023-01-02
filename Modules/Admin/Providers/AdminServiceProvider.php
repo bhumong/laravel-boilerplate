@@ -4,6 +4,8 @@ namespace Modules\Admin\Providers;
 
 use Illuminate\Support\Facades\Blade;
 use Illuminate\Support\ServiceProvider;
+use Modules\Admin\Repositories\RoleRepository;
+use Modules\Admin\Services\Rbac\Rbac;
 use Modules\Admin\Utilities\Singleton\SideBar;
 
 class AdminServiceProvider extends ServiceProvider
@@ -42,6 +44,9 @@ class AdminServiceProvider extends ServiceProvider
         $this->app->register(AuthServiceProvider::class);
         $this->app->singleton(SideBar::class, function () {
             return new SideBar();
+        });
+        $this->app->singleton(Rbac::class, function ($app) {
+            return new Rbac($app->make(RoleRepository::class));
         });
     }
 
