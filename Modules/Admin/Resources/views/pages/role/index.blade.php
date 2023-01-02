@@ -30,9 +30,13 @@ $(document).ready(function () {
     </x-admin::breadcrumbs>
     <x-admin::card>
         <div class="text-right">
+            @can('applyChange', Modules\Admin\Entities\Role::class)
             <button type="button" class="btn btn-warning font-weight-bold" data-toggle="modal" data-target="#apply-change-modal">Apply Change</button>
+            @endcan
 
+            @can('create', Modules\Admin\Entities\Role::class)
             <a href="{{route('admin/roles/create')}}" class="btn btn-primary text-right font-weight-bold">Create Role</a>
+            @endcan
         </div>
         <br>
         <div class="responsive-table">
@@ -51,6 +55,7 @@ $(document).ready(function () {
         </div>
     </x-admin::card>
 
+    @can('applyChange', Modules\Admin\Entities\Role::class)
     <x-admin::modal :id="'apply-change-modal'">
         <h4 class="text-center">Are you sure want apply change roles and permissions?</h4>
         <x-slot:footer>
@@ -62,5 +67,6 @@ $(document).ready(function () {
             </form>
         </x-slot:footer>
     </x-admin::modal>
+    @endcan
 
 </x-admin::app-layout>

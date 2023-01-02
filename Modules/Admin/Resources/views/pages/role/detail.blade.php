@@ -54,9 +54,13 @@ $(document).ready(function () {
             </div>
             <div class="col">
                 <div class="container text-right">
+                    @can('update', $role)
                     <a href="{{route('admin/roles/edit', ['role' => $role->id])}}" class="btn btn-warning font-weight-bold">Edit</a>
-                    <button type="button" class="btn btn-danger font-weight-bold" data-toggle="modal" data-target="#destroy-modal">Delete</button>
+                    @endcan
 
+                    @can('delete', $role)
+                    <button type="button" class="btn btn-danger font-weight-bold" data-toggle="modal" data-target="#destroy-modal">Delete</button>
+                    @endcan
                 </div>
             </div>
         </div>
@@ -107,11 +111,14 @@ $(document).ready(function () {
         </div>
     </x-admin::card>
 
+    @can('delete', $role)
     <x-admin::modal-delete
         :action="route('admin/roles/destroy', ['role' => $role->id])"
         :id="'destroy-modal'"
         >
         <h4 class="text-center">Are you sure want delete role "{{$role->title}}"?</h4>
     </x-admin::modal-delete>
+    @endcan
+
 </x-admin::app-layout>
 
