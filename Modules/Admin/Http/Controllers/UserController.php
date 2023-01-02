@@ -10,7 +10,7 @@ use Modules\Admin\Http\Requests\UserUpdateRequest;
 use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
 use Modules\Admin\Http\Resources\Json\UserResource;
 use Modules\Admin\Repositories\UserRepository;
-use Modules\Admin\Utilities\Enum\ErrorTypeEnum;
+use Modules\Admin\Utilities\Enum\FlashEnum;
 
 class UserController extends Controller
 {
@@ -59,7 +59,7 @@ class UserController extends Controller
         if ($userLogin->id == $user->id) {
             return redirect()
                 ->route('admin/users/edit', ['user' => $user->id])
-                ->withErrors('cannot delete own users', ErrorTypeEnum::flashMessage->name);
+                ->withErrors('cannot delete own users', FlashEnum::error->name);
         }
         $userRepository->delete($user);
         return redirect()->route('admin/users/index');

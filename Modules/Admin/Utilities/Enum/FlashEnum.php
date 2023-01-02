@@ -4,9 +4,10 @@ namespace Modules\Admin\Utilities\Enum;
 
 use App\Utilities\Enum\Traits\BasicEnumTrait;
 
-enum ErrorTypeEnum: string
+enum FlashEnum: string
 {
     use BasicEnumTrait;
 
-    case flashMessage = 'flashMessage';
+    case error = 'flash.error';
+    case success = 'flash.success';
 }

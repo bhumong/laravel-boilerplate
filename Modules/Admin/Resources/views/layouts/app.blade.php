@@ -1,3 +1,7 @@
+<?php
+use Modules\Admin\Utilities\Enum\FlashEnum;
+
+?>
 <!DOCTYPE html>
 <html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
 
@@ -170,15 +174,22 @@
 
         <!-- Content Wrapper. Contains page content -->
         <div class="content-wrapper">
-            @if ($errors->hasBag('flashMessage'))
+            @if ($errors->hasBag(FlashEnum::error->name))
                 <div class="alert alert-danger alert-dismissible fade show" role="alert">
-                    <strong>{{$errors->getBag('flashMessage')->first()}}</strong>
+                    <strong>{{$errors->getBag(FlashEnum::error->name)->first()}}</strong>
                     <button type="button" class="close" data-dismiss="alert" aria-label="Close">
                     <span aria-hidden="true">&times;</span>
                     </button>
                 </div>
             @endif
-
+            @if ($message = session()->get(FlashEnum::success->name))
+                <div class="alert alert-success alert-dismissible fade show" role="alert">
+                    <strong>{{$message}}</strong>
+                    <button type="button" class="close" data-dismiss="alert" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                    </button>
+                </div>
+            @endif
             <section class="content">
                 {{ $slot }}
             </section>
