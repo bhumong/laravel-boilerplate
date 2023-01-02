@@ -1,7 +1,5 @@
 <?php
 
-use App\Http\Controllers\RoleController;
-use App\Models\DataFeed;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -26,11 +24,6 @@ Route::get('/dashboard', function () {
 // require __DIR__ . '/auth.php';
 
 Route::prefix('nonmodule/dashboard')->group(function () {
-    Route::get('/', function () {
-        return view('dashboard');
-    })->name('admin/dashboard');
-
-    Route::get('/roles', [RoleController::class, 'index'])->name('admin/roles/index');
 });
 
 require __DIR__ . '/example_page.php';
