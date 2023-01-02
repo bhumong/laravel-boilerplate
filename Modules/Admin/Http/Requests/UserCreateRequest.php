@@ -30,7 +30,7 @@ class UserCreateRequest extends FormRequest
             'email' => ['required', 'string', 'email', ],
             'name' => ['required', 'string', 'regex:/^[\pL\s\-]+$/u'],
             'role' => ['string', 'nullable', Rule::exists(Role::class, 'id')],
-            'isSuperadmin' => ['nullable', 'boolean'],
+            'is_superuser' => ['nullable', 'boolean'],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
         ];
     }

@@ -2,13 +2,13 @@
 
 namespace App\Models;
 
-use App\Models\Traits\AutoGenerateUuid;
+use Illuminate\Database\Eloquent\Concerns\HasUuids;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Role extends Model
 {
-    use HasFactory, AutoGenerateUuid;
+    use HasFactory, HasUuids;
 
     protected $table = 'roles';
     protected $primaryKey = 'id';
@@ -16,14 +16,18 @@ class Role extends Model
     protected $casts = [
         'is_active' => 'boolean',
     ];
+    protected $relationsClass = [
+        'permission' => Permission::class,
+        'user' => User::class,
+    ];
 
     public function permissions()
     {
-        return $this->belongsToMany(Permission::class, 'role_permission');
+        return $this->belongsToMany($this->relationsClass['permission'] ?? Permission::class, 'role_permission');
     }
 
     public function users()
     {
-        return $this->hasMany(User::class, 'role_id', 'id');
+        return $this->hasMany($this->relationsClass['user'] ?? User::class, 'role_id', 'id');
     }
 }

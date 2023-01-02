@@ -49,7 +49,7 @@
                     <?php
                         $hasActiveChild = empty($accessibleChildren) ? false : count(array_filter(array_column($accessibleChildren, 'isActive'))) > 0;
                         $upperMenuClassess = [];
-                        $aClasses = [];
+                        $aClasses = '';
                         if ($hasActiveChild || !empty($menu['isActive'])) {
                             $upperMenuClassess[] = 'active';
                         }
@@ -70,17 +70,19 @@
                             @if (!empty($hasAccessibleChildren))
                                 <ul class="nav nav-treeview">
                                     @foreach ($menu['items'] as $item)
-                                        @if (!empty($item['isActive']))
-                                            @php
-                                                $aClasses[] = 'active'
-                                            @endphp
+                                        @if (!empty($item['isActive']) && $item['isActive'] === true)
+                                            @php $aClasses = 'active' @endphp
+                                        @else
+                                            @php $aClasses = '' @endphp
                                         @endif
-                                        <li class="nav-item">
-                                            <a href="{{ $item['href'] }}" class="nav-link {{ implode(' ', $aClasses) }}">
-                                                <i class="{{ $item['icon'] }} nav-icon"></i>
-                                                <p>{{ $item['name'] }}</p>
-                                            </a>
-                                        </li>
+                                        @if ($item['canAccess'])
+                                            <li class="nav-item">
+                                                <a href="{{ $item['href'] }}" class="nav-link {{$aClasses}}">
+                                                    <i class="{{ $item['icon'] }} nav-icon"></i>
+                                                    <p>{{ $item['name'] }}</p>
+                                                </a>
+                                            </li>
+                                        @endif
                                     @endforeach
                                 </ul>
                             @endif

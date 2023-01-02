@@ -3,13 +3,19 @@
 namespace Modules\Admin\Http\Controllers;
 
 use Illuminate\Http\Request;
-use Illuminate\Routing\Controller;
+use Modules\Admin\Entities\Role;
+use Modules\Admin\Http\Requests\RoleCreateRequest;
+use Modules\Admin\Http\Requests\RoleUpdateRequest;
+use Modules\Admin\Http\Resources\Collection\DataTableResourceCollection;
+use Modules\Admin\Http\Resources\Json\RoleResource;
 use Modules\Admin\Repositories\RoleRepository;
+use Modules\Admin\Services\Rbac\Rbac;
+use Modules\Admin\Utilities\Enum\FlashEnum;
 
 class RoleController extends Controller
 {
 
-    public function search(Request $request, RoleRepository $roleRepository) 
+    public function search(Request $request, RoleRepository $roleRepository)
     {
         $search = $request->input('search', '');
         return [
@@ -17,14 +23,17 @@ class RoleController extends Controller
         ];
     }
 
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('index', Role::class);
+
+        return view('admin::pages/role/index');
+    }
+
+    public function indexData(RoleRepository $roleRepository)
+    {
+        return new DataTableResourceCollection($roleRepository, RoleResource::class);
     }
 
     /**
@@ -34,62 +43,73 @@ class RoleController extends Controller
      */
     public function create()
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('create', Role::class);
+
+        $role = new Role();
+        return view('admin::pages/role/form', [
+            'role' => $role
+        ]);
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function store(RoleCreateRequest $request, RoleRepository $roleRepository)
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('create', Role::class);
+
+        $data = $request->except('permissions');
+        $data['permission_ids'] = $request->input('permissions', []);
+        $roleRepository->create($data);
+        return redirect()->route('admin/roles/index');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($id)
+    public function show(Role $role)
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('get', $role);
+
+        return view('admin::pages/role/detail', [
+            'role' => $role
+        ]);
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($id)
+    public function edit(Role $role)
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('update', $role);
+
+        return view('admin::pages/role/form', [
+            'role' => $role
+        ]);
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $id)
+    public function update(RoleUpdateRequest $request, Role $role, RoleRepository $roleRepository)
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('update', $role);
+
+        $updateData = $request->except('permissions');
+        $updateData['permission_ids'] = $request->input('permissions', []);
+        $roleRepository->update($role, $updateData);
+        return redirect()->route('admin/roles/index');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($id)
+    public function destroy(Role $role, RoleRepository $roleRepository)
     {
-        //
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('delete', $role);
+
+        $roleRepository->delete($role);
+        return redirect()->route('admin/roles/index');
+    }
+
+    public function applyChange(Rbac $rbac)
+    {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('applyChange', Role::class);
+
+        $rbac->cache();
+        session()->flash(FlashEnum::success->value, 'Success apply role.');
+        return redirect()->route('admin/roles/index');
     }
 }

@@ -1,4 +1,4 @@
-@section('title', 'User')
+@section('title', 'User - List')
 
 @section('page_level_js')
 <script type="module">
@@ -43,7 +43,7 @@ $(document).ready(function () {
     </x-admin::breadcrumbs>
     <x-admin::card>
         <div class="text-right">
-            <a href="{{route('admin/users/create')}}" target="_blank" class="btn btn-primary text-right">Create User</a>
+            <a href="{{route('admin/users/create')}}" class="btn btn-primary text-right font-weight-bold">Create User</a>
         </div>
         <br>
         <div class="responsive-table">
@@ -52,8 +52,8 @@ $(document).ready(function () {
                     <tr>
                         <th data-data="name">Name</th>
                         <th data-data="email">Email</th>
-                        <th data-data="role">Role</th>
-                        <th data-data="action" data-orderable="false">Action</th>
+                        <th data-data="role" data-orderable="false">Role</th>
+                        <th data-data="action" data-orderable="false"></th>
                     </tr>
                 </thead>
                 <tbody>

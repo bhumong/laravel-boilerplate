@@ -15,11 +15,10 @@ namespace App\Models{
  * App\Models\Permission
  *
  * @property string $id
- * @property string $title
- * @property string $value
+ * @property string $permission
  * @property string|null $description
  * @property string $type
- * @property int $is_active
+ * @property bool $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Role[] $roles
@@ -32,10 +31,9 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Permission whereTitle($value)
+ * @method static \Illuminate\Database\Eloquent\Builder|Permission wherePermission($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Permission whereUpdatedAt($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Permission whereValue($value)
  */
 	class Permission extends \Eloquent {}
 }
@@ -46,10 +44,8 @@ namespace App\Models{
  *
  * @property string $id
  * @property string $title
- * @property string $slug
  * @property string|null $description
- * @property string $type
- * @property int $is_active
+ * @property bool $is_active
  * @property \Illuminate\Support\Carbon|null $created_at
  * @property \Illuminate\Support\Carbon|null $updated_at
  * @property-read \Illuminate\Database\Eloquent\Collection|\App\Models\Permission[] $permissions
@@ -64,9 +60,7 @@ namespace App\Models{
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereDescription($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereId($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereIsActive($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereSlug($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereTitle($value)
- * @method static \Illuminate\Database\Eloquent\Builder|Role whereType($value)
  * @method static \Illuminate\Database\Eloquent\Builder|Role whereUpdatedAt($value)
  */
 	class Role extends \Eloquent {}
