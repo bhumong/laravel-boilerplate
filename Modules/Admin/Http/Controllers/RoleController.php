@@ -25,6 +25,9 @@ class RoleController extends Controller
 
     public function index()
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('index', Role::class);
+
         return view('admin::pages/role/index');
     }
 
@@ -40,6 +43,9 @@ class RoleController extends Controller
      */
     public function create()
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('create', Role::class);
+
         $role = new Role();
         return view('admin::pages/role/form', [
             'role' => $role
@@ -48,6 +54,9 @@ class RoleController extends Controller
 
     public function store(RoleCreateRequest $request, RoleRepository $roleRepository)
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('create', Role::class);
+
         $data = $request->except('permissions');
         $data['permission_ids'] = $request->input('permissions', []);
         $roleRepository->create($data);
@@ -56,6 +65,9 @@ class RoleController extends Controller
 
     public function show(Role $role)
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('get', $role);
+
         return view('admin::pages/role/detail', [
             'role' => $role
         ]);
@@ -63,6 +75,9 @@ class RoleController extends Controller
 
     public function edit(Role $role)
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('update', $role);
+
         return view('admin::pages/role/form', [
             'role' => $role
         ]);
@@ -70,6 +85,9 @@ class RoleController extends Controller
 
     public function update(RoleUpdateRequest $request, Role $role, RoleRepository $roleRepository)
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('update', $role);
+
         $updateData = $request->except('permissions');
         $updateData['permission_ids'] = $request->input('permissions', []);
         $roleRepository->update($role, $updateData);
@@ -78,12 +96,18 @@ class RoleController extends Controller
 
     public function destroy(Role $role, RoleRepository $roleRepository)
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('delete', $role);
+
         $roleRepository->delete($role);
         return redirect()->route('admin/roles/index');
     }
 
     public function applyChange(Rbac $rbac)
     {
+        /** see Modules/Admin/Policies/RolePolicy.php */
+        $this->authorize('applyChange', Role::class);
+
         $rbac->cache();
         session()->flash(FlashEnum::success->value, 'Success apply role.');
         return redirect()->route('admin/roles/index');
