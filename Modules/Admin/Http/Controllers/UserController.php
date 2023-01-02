@@ -21,8 +21,6 @@ class UserController extends Controller
 
     public function indexData(UserRepository $userRepository)
     {
-        /** see Modules/Admin/Policies/UserPolicy.php */
-        $this->authorize('index', User::class);
         return new DataTableResourceCollection($userRepository, UserResource::class);
     }
 
