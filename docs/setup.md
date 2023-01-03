@@ -18,8 +18,10 @@ Docker : OS supported Docker with linux container.
 5. run `./vendor/bin/sail composer install`
 6. run `./vendor/bin/sail npm install`
 7. run `./vendor/bin/sail artisan migrate:fresh`
+8. run `./vendor/bin/sail artisan config:cache`
 
 ## Running app in docker
 
  - run `./vendor/bin sail up -d`
  - run `./vendor/bin sail npm run dev`
+ - run each time config change `./vendor/bin/sail artisan config:cache`
