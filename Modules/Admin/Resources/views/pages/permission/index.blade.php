@@ -7,7 +7,7 @@ $(document).ready(function () {
         processing: true,
         serverSide: true,
         ajax: "{{ route('admin/permissions/indexData') }}",
-        lengthMenu: [20, 50, 100],
+        lengthMenu: [10, 20, 50, 100],
     });
 });
 </script>
@@ -25,7 +25,7 @@ $(document).ready(function () {
         ],
     ]">
         <x-slot:title>
-            Roles
+            Permissions
         </x-slot>
     </x-admin::breadcrumbs>
 
