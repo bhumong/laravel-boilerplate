@@ -7,6 +7,6 @@ use App\Models\Role;
 interface RbacUserInterface
 {
     public function getRole(): Role;
-    public function getRoleId(): string;
+    public function getRoleId(): ?string;
     public function isSuperUser(): bool;
 }

@@ -17,7 +17,7 @@ class User extends ModelsUser implements RbacUserInterface
         return $this->role;
     }
 
-    public function getRoleId(): string
+    public function getRoleId(): ?string
     {
         return $this->role_id;
     }
