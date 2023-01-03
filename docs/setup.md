@@ -17,6 +17,7 @@ Docker : OS supported Docker with linux container.
 > composer install  --ignore-platform-reqs
 5. run `./vendor/bin/sail composer install`
 6. run `./vendor/bin/sail npm install`
+7. run `./vendor/bin/sail artisan migrate:fresh`
 
 ## Running app in docker
 
