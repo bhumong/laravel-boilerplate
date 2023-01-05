@@ -74,7 +74,7 @@ class UserController extends Controller
         if ($userLogin->id == $user->id) {
             return redirect()
                 ->route('admin/users/show', ['user' => $user->id])
-                ->withErrors('cannot delete own users', FlashEnum::error->value);
+                ->withErrors(__('cannot delete own users'), FlashEnum::error->value);
         }
         $userRepository->delete($user);
         return redirect()->route('admin/users/index');

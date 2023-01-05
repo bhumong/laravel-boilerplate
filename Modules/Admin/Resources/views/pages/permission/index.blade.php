@@ -35,10 +35,6 @@ $(document).ready(function () {
             <button type="button" class="btn btn-warning font-weight-bold" data-toggle="modal" data-target="#generate-modal">Generate</button>
             @endcan
 
-            @can('applyChange', Modules\Admin\Entities\Role::class)
-            <button type="button" class="btn btn-info font-weight-bold" data-toggle="modal" data-target="#apply-change-modal">Apply Change</button>
-            @endcan
-
             @can('create', Modules\Admin\Entities\Permission::class)
             <a href="{{route('admin/permissions/create')}}" class="btn btn-primary text-right font-weight-bold">Create Permission</a>
             @endcan
@@ -74,19 +70,4 @@ $(document).ready(function () {
         </x-slot:footer>
     </x-admin::modal>
     @endcan
-
-    @can('applyChange', Modules\Admin\Entities\Role::class)
-    <x-admin::modal :id="'apply-change-modal'">
-        <h4 class="text-center">Are you sure want apply change roles and permissions?</h4>
-        <x-slot:footer>
-            <button type="button" class="btn btn-secondary font-weight-bold" data-dismiss="modal">Cancel</button>
-            <form action="{{route('admin/roles/applyChange')}}" method="post">
-                @method('put')
-                @csrf
-                <button type="submit" class="btn btn-warning font-weight-bold">Apply</button>
-            </form>
-        </x-slot:footer>
-    </x-admin::modal>
-    @endcan
-
 </x-admin::app-layout>
