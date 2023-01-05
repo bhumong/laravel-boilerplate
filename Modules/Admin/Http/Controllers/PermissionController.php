@@ -80,7 +80,7 @@ class PermissionController extends Controller
         /** see Modules/Admin/Policies/PermissionPolicy.php */
         $this->authorize('update', $permission);
 
-        $updateData = $request->all();
+        $updateData = $request->only(['description', 'is_active']);
         $permissionRepository->update($permission, $updateData);
         return redirect()->route('admin/permissions/index');
     }

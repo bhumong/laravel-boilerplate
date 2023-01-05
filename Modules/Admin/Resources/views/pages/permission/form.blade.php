@@ -55,6 +55,7 @@
             :label="'Permission'"
             :placeholder="''"
             :value="$permission->permission ?? old('permission')"
+            :disabled="$permission->exists"
         />
         <x-admin::form.input-textarea
             :name="'description'"

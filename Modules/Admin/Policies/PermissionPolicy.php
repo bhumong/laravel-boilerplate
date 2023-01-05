@@ -52,17 +52,7 @@ class PermissionPolicy
 
     public function create(User $user): Response
     {
-        $can = $this->rbac->can(
-            $user,
-            $this->rbac->findByPermissionAndType(
-                PermissionSlugEnum::adminPermissionCreate->value,
-                PermissionTypeEnum::slug
-            )
-        );
-        if ($can) {
-            return $this->allow();
-        }
-        return $this->deny();
+        return $this->deny(__('Only dev can create new permission.'));
     }
 
     public function update(User $user, $target): Response

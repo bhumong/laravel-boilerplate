@@ -27,7 +27,6 @@ class PermissionUpdateRequest extends FormRequest
     public function rules()
     {
         return [
-            'permission' => ['required', 'string'],
             'description' => ['required', 'string', 'min:5'],
             'is_active' => ['nullable', 'boolean'],
         ];
