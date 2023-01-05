@@ -52,7 +52,7 @@ class Handler extends ExceptionHandler
         $this->renderable(function (AccessDeniedHttpException $e, \Illuminate\Http\Request $request) {
             $previous = $e->getPrevious();
             if ($previous instanceof AuthorizationException && $request->is(config('admin.route_prefix') . '/*') && $request->acceptsHtml()) {
-                return response()->view('admin::pages/error/unauthorized', [], $e->getStatusCode());
+                return response()->view('admin::pages/error/unauthorized', ['message' => $previous->getMessage()], $e->getStatusCode());
             }
             return null;
         });
